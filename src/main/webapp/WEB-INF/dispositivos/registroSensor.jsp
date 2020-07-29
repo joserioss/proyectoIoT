@@ -46,33 +46,30 @@
 											<div class="form-group row">
 												<div class="col-sm-6 mb-3 mb-sm-0">
 													<input type="text" class="form-control form-control-user"
-														id="nombreDispositivo"
-														placeholder="Nombre del Dispositivo">
+														id="nombreSensor"
+														placeholder="Nombre del sensor">
 												</div>
 												<div class="col-sm-6">
 													<input type="text" class="form-control form-control-user"
-														id="macDispositivo" placeholder="MAC">
+														id="idSensor" placeholder="Id">
 												</div>
 											</div>
 											<div class="form-group">
-
 												<input type="text" class="form-control form-control-user"
-													id="ubicacion" placeholder="Ubicacion del dispositivo">
-
+													id="macDispositivo" placeholder="MAC del dispositivo al que esta conectado">
 											</div>
-
 											<div class="form-group">
-												<div class="custom-control custom-checkbox small">
-													<input type="checkbox" class="custom-control-input"
-														id="privacidad"> <label
-														class="custom-control-label" for="customCheck">Dispositivo
-														publico</label>
-												</div>
+												<input type="text" class="form-control form-control-user"
+													id="descripcion" placeholder="Descripcion del sensor">
+											</div>
+											<div class="form-group">
+												<input type="text" class="form-control form-control-user"
+													id="tipo" placeholder="Tipo de sensor">
 											</div>
 
 
 											<a href="/" class="btn btn-primary btn-user btn-block">
-												Registrar dispositivo </a>
+												Registrar sensor </a>
 											<hr>
 										</form>
 

@@ -68,7 +68,7 @@
 												<th>MAC</th>
 												<th>Ubicación</th>
 												<th>Ver detalles</th>
-												<th>Deseleccionar</th>
+												<th>Eliminar</th>
 											</tr>
 										</thead>
 										<tfoot>
@@ -77,7 +77,7 @@
 												<th>MAC</th>
 												<th>Ubicación</th>
 												<th>Ver detalles</th>
-												<th>Deseleccionar</th>
+												<th>Eliminar</th>
 											</tr>
 										</tfoot>
 										<tbody>
