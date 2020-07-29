@@ -11,7 +11,7 @@ public class RegistroController {
 
 	@GetMapping
 	public String registro(ModelMap mapa) {
-
-		return "login/registro";
+        String vista = "login/registro";
+		return vista;
 	}
 }

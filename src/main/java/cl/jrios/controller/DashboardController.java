@@ -11,7 +11,7 @@ public class DashboardController {
 
 	@GetMapping
 	public String dashboard(ModelMap mapa) {
-
-		return "usuarios/dashboard";
+		String vista = "usuarios/dashboard";
+		return vista;
 	}
 }

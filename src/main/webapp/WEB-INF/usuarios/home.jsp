@@ -83,7 +83,7 @@
 										<tbody>
 											<tr>
 												<td>ESP8266-3</td>
-												<td></td>
+												<td>60:01:94:61:B1:FD</td>
 												<td>Puente Alto</td>
 												<td><a href="dashboard"
 													class="btn btn-success btn-circle btn-sm"> <i
@@ -96,7 +96,7 @@
 											</tr>
 											<tr>
 												<td>ESP8266-4</td>
-												<td></td>
+												<td>2C:3A:E8:42:0E:53</td>
 												<td>Rancagua</td>
 												<td><a href="dashboard"
 													class="btn btn-success btn-circle btn-sm"> <i
@@ -163,6 +163,26 @@
 												<td>ESP8266-2</td>
 												<td></td>
 												<td>Rancagua</td>
+												<td><a href="#" class="btn btn-primary btn-icon-split">
+														<span class="icon text-white-50"> <i
+															class="fas fa-check"></i>
+													</span>
+												</a></td>
+											</tr>
+											<tr>
+												<td>ARDUINO-1</td>
+												<td></td>
+												<td>Renca</td>
+												<td><a href="#" class="btn btn-primary btn-icon-split">
+														<span class="icon text-white-50"> <i
+															class="fas fa-check"></i>
+													</span>
+												</a></td>
+											</tr>
+											<tr>
+												<td>ARDUINO-2</td>
+												<td></td>
+												<td>Peñalolen</td>
 												<td><a href="#" class="btn btn-primary btn-icon-split">
 														<span class="icon text-white-50"> <i
 															class="fas fa-check"></i>

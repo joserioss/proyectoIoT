@@ -10,8 +10,8 @@
 	<a
 		class="sidebar-brand d-flex align-items-center justify-content-center"
 		href="usuarios">
-		<div class="sidebar-brand-icon rotate-n-15">
-			<i class="fas fa-laugh-wink"></i>
+		<div class="sidebar-brand-icon">
+			<i class="fa fa-home fa-fw"></i>
 		</div>
 		<div class="sidebar-brand-text mx-3">Menú</div>
 	</a>
@@ -27,12 +27,13 @@
 	<hr class="sidebar-divider">
 
 	<!-- Heading -->
-	<div class="sidebar-heading">Interface</div>
+	<div class="sidebar-heading">Interfaz</div>
 
 	<!-- Nav Item - Pages Collapse Menu -->
 	<li class="nav-item"><a class="nav-link collapsed" href="#"
 		data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-		aria-controls="collapseTwo"> <i class="fas fa-clipboard-list fa-2x "></i> <span>Dispositivos</span></a>
+		aria-controls="collapseTwo"> <i
+			class="fas fa-clipboard-list fa-2x "></i> <span>Dispositivos</span></a>
 		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 			data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
@@ -53,7 +54,7 @@
 	<hr class="sidebar-divider">
 
 	<!-- Heading -->
-	<div class="sidebar-heading">Sesion</div>
+	<div class="sidebar-heading">Sesión</div>
 
 	<!-- Nav Item - Pages Collapse Menu -->
 	<li class="nav-item"><a class="nav-link collapsed" href="#"
@@ -63,6 +64,7 @@
 		<div id="collapsePages" class="collapse"
 			aria-labelledby="headingPages" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
+
 				<h6 class="collapse-header">Cuenta actual</h6>
 
 
@@ -73,9 +75,13 @@
 				</a>
 
 
-				<div class="collapse-divider"></div>
-				<h6 class="collapse-header">Registrar nuevo usuario</h6>
-				<a class="collapse-item" href="registro">Registrar nuevo usuario</a>
+				<h6 class="collapse-header">Registro</h6>
+
+				<a class="dropdown-item" href="/" data-toggle="modal"
+					data-target="#logoutModal"> <i
+					class="fa fa-book fa-fw text-gray-400"></i> Registrar nuevo usuario
+				</a>
+
 			</div>
 		</div></li>
 

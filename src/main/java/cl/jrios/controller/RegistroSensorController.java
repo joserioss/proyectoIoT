@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class RegistroSensorController {
 	@GetMapping
 	public String registroSensor(ModelMap mapa) {
-
-		return "dispositivos/registroSensor";
+		String vista = "dispositivos/registroSensor";
+		return vista;
 	}
 }

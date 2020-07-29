@@ -6,17 +6,17 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">¿Esta seguro de
-					cerrar sesion?</h5>
+				<h5 class="modal-title" id="exampleModalLabel">¿Estás seguro de
+					cerrar sesión?</h5>
 				<button class="close" type="button" data-dismiss="modal"
 					aria-label="Close">
 					<span aria-hidden="true">×</span>
 				</button>
 			</div>
 			<div class="modal-body">Seleccione "Logout" para cerrar la
-				sesion actual.</div>
+				sesión actual.</div>
 			<div class="modal-footer">
-				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
 				<a class="btn btn-primary" href="/">Logout</a>
 			</div>
 		</div>

@@ -19,7 +19,7 @@ public class HomeController {
 		palabras.add("bar");
 
 		mapa.put("palabras", palabras);
-
-		return "usuarios/home";
+		String vista = "usuarios/home";
+		return vista;
 	}
 }

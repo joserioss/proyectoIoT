@@ -12,8 +12,8 @@ public class SinPasswordController {
 	
 	@GetMapping
 	public String sinPassword(ModelMap mapa) {
-
-		return "login/sinPassword";
+		String vista = "login/sinPassword";
+		return vista;
 	}
 
 }
