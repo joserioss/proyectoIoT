@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -41,9 +42,16 @@
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
 						<h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-						<a href="#"
-							class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-							class="fas fa-download fa-sm text-white-50"></i> Generar reporte</a>
+						<div class="btn-group" role="group">
+							<button id="btnGroupDrop1" type="button"
+								class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false">Dispositivos
+								disponibles</button>
+							<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+								<a class="dropdown-item" href="dashboard">ESP8266-3</a>
+								<a class="dropdown-item" href="dashboard">ESP8266-4</a>
+							</div>
+						</div>
 					</div>
 
 				</div>
@@ -58,6 +66,8 @@
 								class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 								<h6 class="m-0 font-weight-bold text-primary">Lectura en
 									tiempo real</h6>
+
+								<!-- Menu del grafico -->
 								<div class="dropdown no-arrow">
 									<a class="dropdown-toggle" href="#" role="button"
 										id="dropdownMenuLink" data-toggle="dropdown"
@@ -74,6 +84,8 @@
 										<a class="dropdown-item" href="#">Something else here</a>
 									</div>
 								</div>
+								<!-- Menu del grafico -->
+								
 							</div>
 							<!-- Card Body -->
 							<div class="card-body">

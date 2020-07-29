@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/usuarios")
 public class HomeController {
+	
 	@GetMapping
 	public String index(ModelMap mapa) {
 		List<String> palabras = new ArrayList<>();
@@ -19,7 +20,14 @@ public class HomeController {
 		palabras.add("bar");
 
 		mapa.put("palabras", palabras);
-		String vista = "usuarios/home";
+		String vista = "usuarios/index";
+		return vista;
+	}
+	
+	
+	@GetMapping("/dashboard")
+	public String dashboard(ModelMap mapa) {
+		String vista = "usuarios/dashboard";
 		return vista;
 	}
 }

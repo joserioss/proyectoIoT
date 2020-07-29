@@ -14,4 +14,10 @@ public class LoginController {
         String vista = "login/login";
 		return vista;
     }
+    
+	@GetMapping("/registro")
+	public String registro(ModelMap mapa) {
+        String vista = "login/registro";
+		return vista;
+	}
 }

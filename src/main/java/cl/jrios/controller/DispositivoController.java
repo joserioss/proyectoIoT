@@ -5,15 +5,13 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
 @Controller
-@RequestMapping("/sinPassword")
-public class SinPasswordController {
+@RequestMapping("/dispositivo")
+public class DispositivoController {
 	
 	@GetMapping
-	public String sinPassword(ModelMap mapa) {
-		String vista = "login/sinPassword";
+	public String registroDispositivo(ModelMap mapa) {
+		String vista = "dispositivos/index";
 		return vista;
 	}
-
 }

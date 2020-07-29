@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -42,14 +43,22 @@
 				<div class="container-fluid">
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h1 mb-0 text-gray-800">Bienvenido:</h1>
+						<h1 class="h3 mb-0 text-gray-800">Bienvenido:</h1>
+
+
+						<a href="<c:url value = "usuarios/dashboard"/>"
+							class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+							<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
+						</a>
 					</div>
+
 				</div>
 
 				<hr class="sidebar-divider my-0">
 				<div class="card o-hidden border-0 shadow-lg my-5">
 
 					<div class="container-fluid">
+
 						<hr>
 
 						<!-- DataTales Example -->
@@ -64,7 +73,8 @@
 										cellspacing="0">
 										<thead>
 											<tr>
-												<th>Nombre</th>
+												<th>Dispositivo</th>
+												<th>Sensor</th>
 												<th>MAC</th>
 												<th>Ubicación</th>
 												<th>Ver detalles</th>
@@ -73,7 +83,8 @@
 										</thead>
 										<tfoot>
 											<tr>
-												<th>Nombre</th>
+												<th>Dispositivo</th>
+												<th>Sensor</th>
 												<th>MAC</th>
 												<th>Ubicación</th>
 												<th>Ver detalles</th>
@@ -83,9 +94,10 @@
 										<tbody>
 											<tr>
 												<td>ESP8266-3</td>
+												<td>Movimiento</td>
 												<td>60:01:94:61:B1:FD</td>
 												<td>Puente Alto</td>
-												<td><a href="dashboard"
+												<td><a href="<c:url value = "usuarios/dashboard"/>"
 													class="btn btn-success btn-circle btn-sm"> <i
 														class="fas fa-arrow-right"></i>
 												</a></td>
@@ -96,9 +108,10 @@
 											</tr>
 											<tr>
 												<td>ESP8266-4</td>
+												<td>Movimiento</td>
 												<td>2C:3A:E8:42:0E:53</td>
 												<td>Rancagua</td>
-												<td><a href="dashboard"
+												<td><a href="<c:url value = "usuarios/dashboard"/>"
 													class="btn btn-success btn-circle btn-sm"> <i
 														class="fas fa-arrow-right"></i>
 												</a></td>
@@ -122,10 +135,10 @@
 
 					<div class="container-fluid">
 						<hr>
-						<!-- DataTales Example -->
+						<!-- DataTables Example -->
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
-								<h6 class="m-0 font-weight-bold text-primary">Dispositivos
+								<h6 class="m-0 font-weight-bold text-primary">Sensores
 									disponibles</h6>
 							</div>
 							<div class="card-body">
@@ -134,7 +147,8 @@
 										cellspacing="0">
 										<thead>
 											<tr>
-												<th>Nombre</th>
+												<th>Dispositivo</th>
+												<th>Sensor</th>
 												<th>MAC</th>
 												<th>Ubicación</th>
 												<th>Selección</th>
@@ -142,7 +156,8 @@
 										</thead>
 										<tfoot>
 											<tr>
-												<th>Nombre</th>
+												<th>Dispositivo</th>
+												<th>Sensor</th>
 												<th>MAC</th>
 												<th>Ubicación</th>
 												<th>Selección</th>
@@ -151,7 +166,8 @@
 										<tbody>
 											<tr>
 												<td>ESP8266-1</td>
-												<td></td>
+												<td>Ultrasonico</td>
+												<td>2B:3A:E1:42:02:53</td>
 												<td>Puente Alto</td>
 												<td><a href="#" class="btn btn-primary btn-icon-split">
 														<span class="icon text-white-50"> <i
@@ -161,7 +177,8 @@
 											</tr>
 											<tr>
 												<td>ESP8266-2</td>
-												<td></td>
+												<td>Velocidad del viento</td>
+												<td>2B:3A:11:42:0B:52</td>
 												<td>Rancagua</td>
 												<td><a href="#" class="btn btn-primary btn-icon-split">
 														<span class="icon text-white-50"> <i
@@ -171,7 +188,8 @@
 											</tr>
 											<tr>
 												<td>ARDUINO-1</td>
-												<td></td>
+												<td>Presencia</td>
+												<td>5B:3A:E1:42:02:58</td>
 												<td>Renca</td>
 												<td><a href="#" class="btn btn-primary btn-icon-split">
 														<span class="icon text-white-50"> <i
@@ -181,7 +199,8 @@
 											</tr>
 											<tr>
 												<td>ARDUINO-2</td>
-												<td></td>
+												<td>Ultrasonico</td>
+												<td>70:3A:E1:42:02:51</td>
 												<td>Peñalolen</td>
 												<td><a href="#" class="btn btn-primary btn-icon-split">
 														<span class="icon text-white-50"> <i
@@ -194,6 +213,7 @@
 								</div>
 							</div>
 						</div>
+						<!--  Fin dataTables -->
 						<hr>
 					</div>
 					<!-- End of Main Content -->

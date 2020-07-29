@@ -33,6 +33,7 @@
 				<!-- End of Topbar -->
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
+					<!-- Inicio registro -->
 					<div class="card o-hidden border-0 shadow-lg my-5">
 						<div class="card-body p-0">
 							<div class="row">
@@ -46,8 +47,7 @@
 											<div class="form-group row">
 												<div class="col-sm-6 mb-3 mb-sm-0">
 													<input type="text" class="form-control form-control-user"
-														id="nombreSensor"
-														placeholder="Nombre del sensor">
+														id="nombreSensor" placeholder="Nombre del sensor">
 												</div>
 												<div class="col-sm-6">
 													<input type="text" class="form-control form-control-user"
@@ -56,7 +56,8 @@
 											</div>
 											<div class="form-group">
 												<input type="text" class="form-control form-control-user"
-													id="macDispositivo" placeholder="MAC del dispositivo al que esta conectado">
+													id="macDispositivo"
+													placeholder="MAC del dispositivo al que esta conectado">
 											</div>
 											<div class="form-group">
 												<input type="text" class="form-control form-control-user"
@@ -68,7 +69,7 @@
 											</div>
 
 
-											<a href="/" class="btn btn-primary btn-user btn-block">
+											<a href="usuarios" class="btn btn-primary btn-user btn-block">
 												Registrar sensor </a>
 											<hr>
 										</form>
@@ -78,6 +79,79 @@
 							</div>
 						</div>
 					</div>
+					<!-- Fin registro -->
+					<!-- Inicio mantenedor -->
+					<div class="card o-hidden border-0 shadow-lg my-5">
+						<div class="card-body p-0">
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="p-5">
+										<div class="text-center">
+											<h1 class="h4 text-gray-900 mb-4">Administrador de
+												sensores</h1>
+										</div>
+										<div class="col-lg-12">
+											<!-- DataTables Example -->
+											<div class="card shadow mb-4">
+
+												<div class="card-body">
+													<div class="table-responsive">
+														<table class="table table-bordered" id="dataTable"
+															width="100%" cellspacing="0">
+															<thead>
+																<tr>
+																	<th>Id</th>
+																	<th>Sensor</th>
+																	<th>Mac Dispositivo</th>
+																	<th>Descripción</th>
+																	<th>Tipo</th>
+																	<th>Actualizar</th>
+																	<th>Eliminar</th>
+																</tr>
+															</thead>
+															<tfoot>
+																<tr>
+																	<th>Id</th>
+																	<th>Sensor</th>
+																	<th>Mac Dispositivo</th>
+																	<th>Descripción</th>
+																	<th>Tipo</th>
+																	<th>Actualizar</th>
+																	<th>Eliminar</th>
+																</tr>
+															</tfoot>
+															<tbody>
+																<tr>
+																	<td>1</td>
+																	<td>IMU</td>
+																	<td>60:01:94:61:B1:FD</td>
+																	<td>Sensor conectado a un arduino en Puente Alto,
+																		para medir vibraciones</td>
+																	<td>Movimiento</td>
+																	<td><a href="dashboard"
+																		class="btn btn-success btn-circle btn-sm"> <i
+																			class="fas fa-arrow-right"></i>
+																	</a></td>
+																	<td><a href="#"
+																		class="btn btn-danger btn-circle btn-sm"> <i
+																			class="fas fa-trash"></i>
+																	</a></td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
+											<!--  Fin dataTables -->
+
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Fin mantenedor -->
 				</div>
 				<!-- End of Main Content -->
 

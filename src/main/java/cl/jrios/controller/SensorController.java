@@ -6,12 +6,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/registro")
-public class RegistroController {
-
+@RequestMapping("/sensor")
+public class SensorController {
 	@GetMapping
-	public String registro(ModelMap mapa) {
-        String vista = "login/registro";
+	public String registroSensor(ModelMap mapa) {
+		String vista = "sensores/index";
 		return vista;
 	}
 }

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 
 <!-- Sidebar -->
 <ul
@@ -9,7 +11,7 @@
 	<!-- Sidebar - Brand -->
 	<a
 		class="sidebar-brand d-flex align-items-center justify-content-center"
-		href="usuarios">
+		href="<c:url value = "/usuarios"/>">
 		<div class="sidebar-brand-icon">
 			<i class="fa fa-home fa-fw"></i>
 		</div>
@@ -18,13 +20,6 @@
 
 	<!-- Divider -->
 	<hr class="sidebar-divider my-0">
-
-	<!-- Nav Item - Dashboard -->
-	<li class="nav-item active"><a class="nav-link" href="dashboard">
-			<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
-	</a></li>
-	<!-- Divider -->
-	<hr class="sidebar-divider">
 
 	<!-- Heading -->
 	<div class="sidebar-heading">Interfaz</div>
@@ -36,16 +31,12 @@
 			class="fas fa-clipboard-list fa-2x "></i> <span>Dispositivos</span></a>
 		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 			data-parent="#accordionSidebar">
-			<div class="bg-white py-2 collapse-inner rounded">
-				<h6 class="collapse-header">Disponibles:</h6>
-				<a class="collapse-item" href="dashboard">ESP8266-3</a> <a
-					class="collapse-item" href="dashboard">ESP8266-4</a>
-			</div>
+
 			<div class="bg-white py-2 collapse-inner rounded">
 				<h6 class="collapse-header">Registro:</h6>
-				<a class="collapse-item" href="registroDispositivo">Registrar
-					dispositivo</a> <a class="collapse-item" href="registroSensor">Registrar
-					sensor</a>
+				<a class="collapse-item" href="<c:url value = "/dispositivo"/>">
+					Registrar dispositivo</a> <a class="collapse-item"
+					href="<c:url value = "/sensor"/>">Registrar sensor</a>
 			</div>
 		</div></li>
 

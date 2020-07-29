@@ -68,11 +68,7 @@
 											Login </a>
 										<hr>
 									</form>
-									<hr>
-									<div class="text-center">
-										<a class="small" href="sinPassword">¿No recuerdas
-											tu contraseña?</a>
-									</div>
+
 									<div class="text-center">
 										<a class="small" href="registro">¡Registrate gratis!</a>
 									</div>
