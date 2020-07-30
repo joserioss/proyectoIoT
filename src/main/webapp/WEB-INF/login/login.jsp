@@ -72,6 +72,9 @@
 									<div class="text-center">
 										<a class="small" href="registro">¡Registrate gratis!</a>
 									</div>
+									<div class="text-center">
+										<a class="small" href="admin">Administrador</a>
+									</div>
 								</div>
 							</div>
 						</div>

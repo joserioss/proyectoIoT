@@ -11,7 +11,7 @@
 	<!-- Sidebar - Brand -->
 	<a
 		class="sidebar-brand d-flex align-items-center justify-content-center"
-		href="<c:url value = "/usuarios"/>">
+		href="<c:url value = "/home"/>">
 		<div class="sidebar-brand-icon">
 			<i class="fa fa-home fa-fw"></i>
 		</div>

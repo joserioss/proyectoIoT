@@ -98,7 +98,7 @@
 												<td>Movimiento</td>
 												<td>60:01:94:61:B1:FD</td>
 												<td>Puente Alto</td>
-												<td><a href="<c:url value = "usuarios/dashboard"/>"
+												<td><a href="<c:url value = "home/dashboard"/>"
 													class="btn btn-success btn-circle btn-sm"> <i
 														class="fas fa-arrow-right"></i>
 												</a></td>
@@ -112,7 +112,7 @@
 												<td>Movimiento</td>
 												<td>2C:3A:E8:42:0E:53</td>
 												<td>Rancagua</td>
-												<td><a href="<c:url value = "usuarios/dashboard"/>"
+												<td><a href="<c:url value = "home/dashboard"/>"
 													class="btn btn-success btn-circle btn-sm"> <i
 														class="fas fa-arrow-right"></i>
 												</a></td>
