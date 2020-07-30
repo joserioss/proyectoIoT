@@ -11,7 +11,6 @@ public class AdminController {
 
 	@GetMapping
 	public String administrador(ModelMap mapa) {
-		String vista = "admin/index";
-		return vista;
+		return "admin/index";
 	}
 }
