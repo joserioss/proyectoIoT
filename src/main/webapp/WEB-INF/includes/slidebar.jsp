@@ -34,9 +34,9 @@
 
 			<div class="bg-white py-2 collapse-inner rounded">
 				<h6 class="collapse-header">Registro:</h6>
-				<a class="collapse-item" href="<c:url value = "/dispositivo"/>">
+				<a class="collapse-item" href="<c:url value = "/dispositivos"/>">
 					Registrar dispositivo</a> <a class="collapse-item"
-					href="<c:url value = "/sensor"/>">Registrar sensor</a>
+					href="<c:url value = "/sensores"/>">Registrar sensor</a>
 			</div>
 		</div></li>
 

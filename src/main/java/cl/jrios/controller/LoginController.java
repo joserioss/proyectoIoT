@@ -6,18 +6,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping({"/",""})
+@RequestMapping("/")
 public class LoginController {
 
     @GetMapping
     public String index(ModelMap mapa) {
-        String vista = "login/login";
-		return vista;
+		return "login/login";
     }
     
 	@GetMapping("/registro")
 	public String registro(ModelMap mapa) {
-        String vista = "login/registro";
-		return vista;
+		return "login/registro";
 	}
 }

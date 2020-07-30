@@ -64,7 +64,7 @@
 													cuenta</label>
 											</div>
 										</div>
-										<a href="usuarios" class="btn btn-primary btn-user btn-block">
+										<a href="/home" class="btn btn-primary btn-user btn-block">
 											Login </a>
 										<hr>
 									</form>
