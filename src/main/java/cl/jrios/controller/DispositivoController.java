@@ -6,9 +6,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/dispositivo")
+@RequestMapping("/dispositivos")
 public class DispositivoController {
 	
+    public String listarDispositivos() {
+        
+    }
+    
 	@GetMapping
 	public String registroDispositivo(ModelMap mapa) {
 		String vista = "dispositivos/index";
