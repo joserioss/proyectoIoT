@@ -26,20 +26,21 @@
 							<form class="user">
 								<div class="form-group row">
 									<input type="text" class="form-control form-control-user"
-										id="exampleFirstName" placeholder="Nombre de usuario (Alias)">
+										id="exampleFirstName"
+										placeholder="Nombre de nuevo usuario (Alias)">
 								</div>
 								<div class="form-group">
 									<input type="email" class="form-control form-control-user"
-										id="exampleInputEmail" placeholder="Email Address">
+										id="inputEmail" placeholder="Email del nuevo usuario">
 								</div>
 								<div class="form-group row">
 									<div class="col-sm-6 mb-3 mb-sm-0">
 										<input type="password" class="form-control form-control-user"
-											id="exampleInputPassword" placeholder="Password">
+											id="inputPassword" placeholder="Password">
 									</div>
 									<div class="col-sm-6">
 										<input type="password" class="form-control form-control-user"
-											id="exampleRepeatPassword" placeholder="Repeat Password">
+											id="repeatPassword" placeholder="Repita Password">
 									</div>
 								</div>
 								<a href="/" class="btn btn-primary btn-user btn-block">
@@ -48,8 +49,8 @@
 							</form>
 							<hr>
 							<div class="text-center">
-								<a class="small" href="/"> ¿Ya tienes una cuenta?
-									¡Iniciar sesión!</a>
+								<a class="small" href="/"> ¿Ya tienes una cuenta? ¡Iniciar
+									sesión!</a>
 							</div>
 						</div>
 					</div>

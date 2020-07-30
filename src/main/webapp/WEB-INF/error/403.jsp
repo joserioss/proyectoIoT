@@ -5,7 +5,7 @@
 <html lang="es">
 
 <head>
-<title>Error 404</title>
+<title>Error 403</title>
 <jsp:include page="../includes/head.jsp"></jsp:include>
 </head>
 
@@ -38,12 +38,12 @@
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
 
-					<!-- 404 Error Text -->
+					<!-- 403 Error Text -->
 					<div class="text-center">
-						<div class="error mx-auto" data-text="404">404</div>
-						<p class="lead text-gray-800 mb-5">Page Not Found</p>
-						<p class="text-gray-500 mb-0">Parece que encontraste una falla
-							en la matriz ...</p>
+						<div class="error mx-auto" data-text="403">403</div>
+						<p class="lead text-gray-800 mb-5">Sin autorización</p>
+						<p class="text-gray-500 mb-0">El acceso a este recurso está
+							prohibido.</p>
 						<a href="<c:url value = "/usuarios"/>">&larr; Volver</a>
 					</div>
 

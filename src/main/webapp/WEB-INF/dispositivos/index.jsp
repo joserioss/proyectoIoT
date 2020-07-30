@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -83,7 +85,7 @@
 						</div>
 					</div>
 					<!-- Fin registro -->
-					
+
 					<!-- Inicio mantenedor -->
 					<div class="card o-hidden border-0 shadow-lg my-5">
 						<div class="card-body p-0">
@@ -153,7 +155,7 @@
 						</div>
 					</div>
 					<!-- Fin mantenedor -->
-					
+
 				</div>
 				<!-- End Page Content -->
 			</div>

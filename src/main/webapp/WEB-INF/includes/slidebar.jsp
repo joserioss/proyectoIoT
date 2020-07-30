@@ -66,11 +66,10 @@
 				</a>
 
 
-				<h6 class="collapse-header">Registro</h6>
+				<h6 class="collapse-header">Actualizar</h6>
 
-				<a class="dropdown-item" href="/" data-toggle="modal"
-					data-target="#logoutModal"> <i
-					class="fa fa-book fa-fw text-gray-400"></i> Registrar nuevo usuario
+				<a class="dropdown-item" href="registro"> <i
+					class="fa fa-book fa-fw text-gray-400"></i> Actualizar datos
 				</a>
 
 			</div>
