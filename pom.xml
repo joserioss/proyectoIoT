@@ -21,32 +21,31 @@
 	</properties>
 
 	<dependencies>
+	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
+		
+				<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		
+		<!-- Jpa -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<!-- Jpa # -->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 		<!-- SOPORTE ARCHIVOS JSP -->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
@@ -54,6 +53,7 @@
 			<scope>provided</scope>
 		</dependency>
 		<!-- SOPORTE ARCHIVOS JSP # -->
+		
 		<!-- JSTL -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -64,6 +64,32 @@
 			<artifactId>javax.servlet-api</artifactId>
 		</dependency>
 		<!-- JSTL # -->
+
+		<!-- devtool -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!-- devtool # -->
+
+		<!-- lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!-- lombok # -->
+
+
+
+		<!-- SQLITE - SUPPORT -->
+		<dependency>
+			<groupId>org.xerial</groupId>
+			<artifactId>sqlite-jdbc</artifactId>
+		</dependency>
+		<!-- SQLITE - SUPPORT # -->
+
 	</dependencies>
 
 	<build>

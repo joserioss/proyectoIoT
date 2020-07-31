@@ -1,0 +1,282 @@
+2020-07-30 17:48:16.102  INFO 1532 --- [restartedMain] cl.jrios.ProyectoIoTApplication          : Starting ProyectoIoTApplication using Java 1.8.0_251 on NI5B23 with PID 1532 (C:\Users\NI5B35\Documents\workspace-spring-tool-suite-4-4.6.1.RELEASE\ProyectoIoT\target\classes started by NI5B35 in C:\Users\NI5B35\Documents\workspace-spring-tool-suite-4-4.6.1.RELEASE\ProyectoIoT)
+2020-07-30 17:48:16.105  INFO 1532 --- [restartedMain] cl.jrios.ProyectoIoTApplication          : No active profile set, falling back to default profiles: default
+2020-07-30 17:48:16.153  INFO 1532 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-30 17:48:16.154  INFO 1532 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-30 17:48:16.972  INFO 1532 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-30 17:48:17.070  INFO 1532 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 86 ms. Found 3 JPA repository interfaces.
+2020-07-30 17:48:17.828  INFO 1532 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-30 17:48:17.837  INFO 1532 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-30 17:48:17.838  INFO 1532 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-30 17:48:18.136  INFO 1532 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-07-30 17:48:18.141  INFO 1532 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-30 17:48:18.141  INFO 1532 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1983 ms
+2020-07-30 17:48:18.418  INFO 1532 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-30 17:48:18.502  INFO 1532 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-30 17:48:18.594  INFO 1532 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-30 17:48:18.670  WARN 1532 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-30 17:48:18.848  INFO 1532 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-30 17:48:19.316  INFO 1532 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: cl.jrios.config.SQLiteDialect
+2020-07-30 17:48:19.977  INFO 1532 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-30 17:48:20.034  INFO 1532 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-30 17:48:20.037  INFO 1532 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-30 17:48:20.094  WARN 1532 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'usuarioRepository' defined in cl.jrios.model.dao.UsuarioRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaMappingContext' while setting bean property 'mappingContext'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaMappingContext': Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Illegal attempt to map a non collection as a @OneToMany, @ManyToMany or @CollectionOfElements: cl.jrios.model.entity.Dispositivo.usuario
+2020-07-30 17:48:20.097  INFO 1532 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-30 17:48:20.097  WARN 1532 --- [restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'entityManagerFactory': org.hibernate.AnnotationException: Illegal attempt to map a non collection as a @OneToMany, @ManyToMany or @CollectionOfElements: cl.jrios.model.entity.Dispositivo.usuario
+2020-07-30 17:48:20.097  INFO 1532 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-30 17:48:20.424  INFO 1532 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-07-30 17:48:20.450  INFO 1532 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-07-30 17:48:20.470 ERROR 1532 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'usuarioRepository' defined in cl.jrios.model.dao.UsuarioRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaMappingContext' while setting bean property 'mappingContext'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaMappingContext': Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Illegal attempt to map a non collection as a @OneToMany, @ManyToMany or @CollectionOfElements: cl.jrios.model.entity.Dispositivo.usuario
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:342) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:113) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1691) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1436) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:608) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:656) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:644) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.data.repository.config.DeferredRepositoryInitializationListener.onApplicationEvent(DeferredRepositoryInitializationListener.java:54) ~[spring-data-commons-2.4.0-M1.jar:2.4.0-M1]
+	at org.springframework.data.repository.config.DeferredRepositoryInitializationListener.onApplicationEvent(DeferredRepositoryInitializationListener.java:36) ~[spring-data-commons-2.4.0-M1.jar:2.4.0-M1]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:420) ~[spring-context-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:377) ~[spring-context-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:916) ~[spring-context-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:570) ~[spring-context-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-2.4.0-SNAPSHOT.jar:2.4.0-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:748) [spring-boot-2.4.0-SNAPSHOT.jar:2.4.0-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740) [spring-boot-2.4.0-SNAPSHOT.jar:2.4.0-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:405) [spring-boot-2.4.0-SNAPSHOT.jar:2.4.0-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323) [spring-boot-2.4.0-SNAPSHOT.jar:2.4.0-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1244) [spring-boot-2.4.0-SNAPSHOT.jar:2.4.0-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1233) [spring-boot-2.4.0-SNAPSHOT.jar:2.4.0-SNAPSHOT]
+	at cl.jrios.ProyectoIoTApplication.main(ProyectoIoTApplication.java:10) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_251]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_251]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_251]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_251]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.4.0-SNAPSHOT.jar:2.4.0-SNAPSHOT]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaMappingContext': Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Illegal attempt to map a non collection as a @OneToMany, @ManyToMany or @CollectionOfElements: cl.jrios.model.entity.Dispositivo.usuario
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:609) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:330) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	... 33 common frames omitted
+Caused by: org.hibernate.AnnotationException: Illegal attempt to map a non collection as a @OneToMany, @ManyToMany or @CollectionOfElements: cl.jrios.model.entity.Dispositivo.usuario
+	at org.hibernate.cfg.annotations.CollectionBinder.getCollectionBinder(CollectionBinder.java:324) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.hibernate.cfg.AnnotationBinder.processElementAnnotations(AnnotationBinder.java:1939) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.hibernate.cfg.AnnotationBinder.processIdPropertiesIfNotAlready(AnnotationBinder.java:975) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:802) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.hibernate.boot.model.source.internal.annotations.AnnotationMetadataSourceProcessorImpl.processEntityHierarchies(AnnotationMetadataSourceProcessorImpl.java:254) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess$1.processEntityHierarchies(MetadataBuildingProcess.java:230) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:273) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1224) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1255) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.0-M1.jar:5.3.0-M1]
+	at java.util.concurrent.FutureTask.run(Unknown Source) ~[na:1.8.0_251]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) ~[na:1.8.0_251]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) ~[na:1.8.0_251]
+	at java.lang.Thread.run(Unknown Source) ~[na:1.8.0_251]
+
+2020-07-30 17:55:21.658  INFO 11512 --- [restartedMain] cl.jrios.ProyectoIoTApplication          : Starting ProyectoIoTApplication using Java 1.8.0_251 on NI5B23 with PID 11512 (C:\Users\NI5B35\Documents\workspace-spring-tool-suite-4-4.6.1.RELEASE\ProyectoIoT\target\classes started by NI5B35 in C:\Users\NI5B35\Documents\workspace-spring-tool-suite-4-4.6.1.RELEASE\ProyectoIoT)
+2020-07-30 17:55:21.660  INFO 11512 --- [restartedMain] cl.jrios.ProyectoIoTApplication          : No active profile set, falling back to default profiles: default
+2020-07-30 17:55:21.705  INFO 11512 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-30 17:55:21.705  INFO 11512 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-30 17:55:22.384  INFO 11512 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-30 17:55:22.463  INFO 11512 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 3 JPA repository interfaces.
+2020-07-30 17:55:23.070  INFO 11512 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-30 17:55:23.098  INFO 11512 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-30 17:55:23.099  INFO 11512 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-30 17:55:23.347  INFO 11512 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-07-30 17:55:23.351  INFO 11512 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-30 17:55:23.352  INFO 11512 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1647 ms
+2020-07-30 17:55:23.589  INFO 11512 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-30 17:55:23.652  INFO 11512 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-30 17:55:23.735  INFO 11512 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-30 17:55:23.809  WARN 11512 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-30 17:55:23.940  INFO 11512 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-30 17:55:24.309  INFO 11512 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: cl.jrios.config.SQLiteDialect
+2020-07-30 17:55:24.876  INFO 11512 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-30 17:55:24.921  INFO 11512 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-30 17:55:24.924  INFO 11512 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-30 17:55:24.970  WARN 11512 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sensorRepository' defined in cl.jrios.model.dao.SensorRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaMappingContext' while setting bean property 'mappingContext'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaMappingContext': Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Illegal attempt to map a non collection as a @OneToMany, @ManyToMany or @CollectionOfElements: cl.jrios.model.entity.Dispositivo.usuario
+2020-07-30 17:55:24.972  INFO 11512 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-30 17:55:24.972  WARN 11512 --- [restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'entityManagerFactory': org.hibernate.AnnotationException: Illegal attempt to map a non collection as a @OneToMany, @ManyToMany or @CollectionOfElements: cl.jrios.model.entity.Dispositivo.usuario
+2020-07-30 17:55:24.972  INFO 11512 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-30 17:55:25.247  INFO 11512 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-07-30 17:55:25.263  INFO 11512 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-07-30 17:55:25.282 ERROR 11512 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sensorRepository' defined in cl.jrios.model.dao.SensorRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaMappingContext' while setting bean property 'mappingContext'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaMappingContext': Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Illegal attempt to map a non collection as a @OneToMany, @ManyToMany or @CollectionOfElements: cl.jrios.model.entity.Dispositivo.usuario
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:342) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:113) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1691) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1436) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:608) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:656) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:644) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.data.repository.config.DeferredRepositoryInitializationListener.onApplicationEvent(DeferredRepositoryInitializationListener.java:54) ~[spring-data-commons-2.4.0-M1.jar:2.4.0-M1]
+	at org.springframework.data.repository.config.DeferredRepositoryInitializationListener.onApplicationEvent(DeferredRepositoryInitializationListener.java:36) ~[spring-data-commons-2.4.0-M1.jar:2.4.0-M1]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:420) ~[spring-context-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:377) ~[spring-context-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:916) ~[spring-context-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:570) ~[spring-context-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-2.4.0-SNAPSHOT.jar:2.4.0-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:748) [spring-boot-2.4.0-SNAPSHOT.jar:2.4.0-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740) [spring-boot-2.4.0-SNAPSHOT.jar:2.4.0-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:405) [spring-boot-2.4.0-SNAPSHOT.jar:2.4.0-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323) [spring-boot-2.4.0-SNAPSHOT.jar:2.4.0-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1244) [spring-boot-2.4.0-SNAPSHOT.jar:2.4.0-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1233) [spring-boot-2.4.0-SNAPSHOT.jar:2.4.0-SNAPSHOT]
+	at cl.jrios.ProyectoIoTApplication.main(ProyectoIoTApplication.java:10) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_251]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_251]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_251]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_251]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.4.0-SNAPSHOT.jar:2.4.0-SNAPSHOT]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaMappingContext': Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Illegal attempt to map a non collection as a @OneToMany, @ManyToMany or @CollectionOfElements: cl.jrios.model.entity.Dispositivo.usuario
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:609) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:330) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	... 33 common frames omitted
+Caused by: org.hibernate.AnnotationException: Illegal attempt to map a non collection as a @OneToMany, @ManyToMany or @CollectionOfElements: cl.jrios.model.entity.Dispositivo.usuario
+	at org.hibernate.cfg.annotations.CollectionBinder.getCollectionBinder(CollectionBinder.java:324) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.hibernate.cfg.AnnotationBinder.processElementAnnotations(AnnotationBinder.java:1939) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.hibernate.cfg.AnnotationBinder.processIdPropertiesIfNotAlready(AnnotationBinder.java:975) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:802) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.hibernate.boot.model.source.internal.annotations.AnnotationMetadataSourceProcessorImpl.processEntityHierarchies(AnnotationMetadataSourceProcessorImpl.java:254) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess$1.processEntityHierarchies(MetadataBuildingProcess.java:230) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:273) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1224) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1255) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.0-M1.jar:5.3.0-M1]
+	at java.util.concurrent.FutureTask.run(Unknown Source) ~[na:1.8.0_251]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) ~[na:1.8.0_251]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) ~[na:1.8.0_251]
+	at java.lang.Thread.run(Unknown Source) ~[na:1.8.0_251]
+
+2020-07-30 18:02:23.326  INFO 8596 --- [restartedMain] cl.jrios.ProyectoIoTApplication          : Starting ProyectoIoTApplication using Java 1.8.0_251 on NI5B23 with PID 8596 (C:\Users\NI5B35\Documents\workspace-spring-tool-suite-4-4.6.1.RELEASE\ProyectoIoT\target\classes started by NI5B35 in C:\Users\NI5B35\Documents\workspace-spring-tool-suite-4-4.6.1.RELEASE\ProyectoIoT)
+2020-07-30 18:02:23.328  INFO 8596 --- [restartedMain] cl.jrios.ProyectoIoTApplication          : No active profile set, falling back to default profiles: default
+2020-07-30 18:02:23.386  INFO 8596 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-30 18:02:23.387  INFO 8596 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-30 18:02:24.291  INFO 8596 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-30 18:02:24.380  INFO 8596 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 79 ms. Found 3 JPA repository interfaces.
+2020-07-30 18:02:25.130  INFO 8596 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-30 18:02:25.139  INFO 8596 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-30 18:02:25.140  INFO 8596 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-30 18:02:25.451  INFO 8596 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-07-30 18:02:25.456  INFO 8596 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-30 18:02:25.456  INFO 8596 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2068 ms
+2020-07-30 18:02:25.745  INFO 8596 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-30 18:02:25.808  INFO 8596 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-30 18:02:25.902  INFO 8596 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-30 18:02:25.998  WARN 8596 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-30 18:02:26.143  INFO 8596 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-30 18:02:26.561  INFO 8596 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: cl.jrios.config.SQLiteDialect
+2020-07-30 18:02:27.316  INFO 8596 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-30 18:02:27.376  INFO 8596 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-30 18:02:27.378  INFO 8596 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-30 18:02:27.442  WARN 8596 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'usuarioRepository' defined in cl.jrios.model.dao.UsuarioRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaMappingContext' while setting bean property 'mappingContext'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaMappingContext': Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Illegal attempt to map a non collection as a @OneToMany, @ManyToMany or @CollectionOfElements: cl.jrios.model.entity.Dispositivo.usuario
+2020-07-30 18:02:27.445  INFO 8596 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-30 18:02:27.445  WARN 8596 --- [restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'entityManagerFactory': org.hibernate.AnnotationException: Illegal attempt to map a non collection as a @OneToMany, @ManyToMany or @CollectionOfElements: cl.jrios.model.entity.Dispositivo.usuario
+2020-07-30 18:02:27.445  INFO 8596 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-30 18:02:27.782  INFO 8596 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-07-30 18:02:27.803  INFO 8596 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-07-30 18:02:27.829 ERROR 8596 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'usuarioRepository' defined in cl.jrios.model.dao.UsuarioRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaMappingContext' while setting bean property 'mappingContext'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaMappingContext': Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Illegal attempt to map a non collection as a @OneToMany, @ManyToMany or @CollectionOfElements: cl.jrios.model.entity.Dispositivo.usuario
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:342) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:113) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1691) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1436) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:608) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:656) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:644) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.data.repository.config.DeferredRepositoryInitializationListener.onApplicationEvent(DeferredRepositoryInitializationListener.java:54) ~[spring-data-commons-2.4.0-M1.jar:2.4.0-M1]
+	at org.springframework.data.repository.config.DeferredRepositoryInitializationListener.onApplicationEvent(DeferredRepositoryInitializationListener.java:36) ~[spring-data-commons-2.4.0-M1.jar:2.4.0-M1]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:420) ~[spring-context-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:377) ~[spring-context-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:916) ~[spring-context-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:570) ~[spring-context-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-2.4.0-SNAPSHOT.jar:2.4.0-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:748) [spring-boot-2.4.0-SNAPSHOT.jar:2.4.0-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740) [spring-boot-2.4.0-SNAPSHOT.jar:2.4.0-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:405) [spring-boot-2.4.0-SNAPSHOT.jar:2.4.0-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323) [spring-boot-2.4.0-SNAPSHOT.jar:2.4.0-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1244) [spring-boot-2.4.0-SNAPSHOT.jar:2.4.0-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1233) [spring-boot-2.4.0-SNAPSHOT.jar:2.4.0-SNAPSHOT]
+	at cl.jrios.ProyectoIoTApplication.main(ProyectoIoTApplication.java:10) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_251]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_251]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_251]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_251]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.4.0-SNAPSHOT.jar:2.4.0-SNAPSHOT]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaMappingContext': Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Illegal attempt to map a non collection as a @OneToMany, @ManyToMany or @CollectionOfElements: cl.jrios.model.entity.Dispositivo.usuario
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:609) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:330) ~[spring-beans-5.3.0-M1.jar:5.3.0-M1]
+	... 33 common frames omitted
+Caused by: org.hibernate.AnnotationException: Illegal attempt to map a non collection as a @OneToMany, @ManyToMany or @CollectionOfElements: cl.jrios.model.entity.Dispositivo.usuario
+	at org.hibernate.cfg.annotations.CollectionBinder.getCollectionBinder(CollectionBinder.java:324) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.hibernate.cfg.AnnotationBinder.processElementAnnotations(AnnotationBinder.java:1939) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.hibernate.cfg.AnnotationBinder.processIdPropertiesIfNotAlready(AnnotationBinder.java:975) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:802) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.hibernate.boot.model.source.internal.annotations.AnnotationMetadataSourceProcessorImpl.processEntityHierarchies(AnnotationMetadataSourceProcessorImpl.java:254) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess$1.processEntityHierarchies(MetadataBuildingProcess.java:230) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:273) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1224) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1255) ~[hibernate-core-5.4.18.Final.jar:5.4.18.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.0-M1.jar:5.3.0-M1]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.0-M1.jar:5.3.0-M1]
+	at java.util.concurrent.FutureTask.run(Unknown Source) ~[na:1.8.0_251]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) ~[na:1.8.0_251]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) ~[na:1.8.0_251]
+	at java.lang.Thread.run(Unknown Source) ~[na:1.8.0_251]
+
