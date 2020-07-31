@@ -1,10 +1,14 @@
 package cl.jrios.model.entity;
 
+import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,11 +27,15 @@ public class Dispositivo {
 	private Integer id;
 
 	private String nombre;
+	
+	@Column(unique = true)
 	private String mac;
 	private String ubicacion;
 	private PrivacidadDispositivo privacidad;
-//	
-//	@ManyToMany
-//	private Usuario usuario; 
+	
+	@ManyToMany
+	private List<Usuario> usuarios; 
 
+	@OneToMany
+	private List<Sensor> sensores;
 }

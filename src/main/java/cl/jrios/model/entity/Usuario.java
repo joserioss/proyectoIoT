@@ -1,5 +1,7 @@
 package cl.jrios.model.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,7 +29,7 @@ public class Usuario {
 	private String password;
 	private RolUsuario rol;
 
-//	@ManyToMany
-//	private Dispositivo dispositivo;
+	@ManyToMany
+	private List<Dispositivo> dispositivo;
 
 }

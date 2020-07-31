@@ -1,6 +1,5 @@
 package cl.jrios.model.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,8 +28,7 @@ public class Sensor {
 	private TipoSensor tipo;
 	private Integer dato;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "dispositivo_id", referencedColumnName = "id")
+	@ManyToOne
 	private Dispositivo dispositivo;
 
 }
