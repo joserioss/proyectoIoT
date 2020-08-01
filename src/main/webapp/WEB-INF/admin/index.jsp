@@ -21,7 +21,7 @@
 			<!-- Sidebar - Brand -->
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
-				href="/admin">
+				href="/home">
 				<div class="sidebar-brand-icon">
 					<i class="fa fa-home fa-fw"></i>
 				</div>

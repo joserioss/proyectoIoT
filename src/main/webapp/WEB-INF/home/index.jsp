@@ -44,10 +44,10 @@
 				<div class="container-fluid">
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">Bienvenido:</h1>
+						<h1 class="h3 mb-0 text-gray-800">Bienvenido: <c:out value="${username}"></c:out> </h1>
 
 
-						<a href="<c:url value = "home/dashboard"/>"
+						<a href="<c:url value = 'home/dashboard' />"
 							class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
 							<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
 						</a>

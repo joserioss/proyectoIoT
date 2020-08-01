@@ -72,7 +72,14 @@
 					class="fa fa-book fa-fw text-gray-400"></i> Actualizar datos
 				</a>
 
+				<h6 class="collapse-header">Admin</h6>
+
+				<a class="dropdown-item" href="admin"> <i
+					class="fa fa-book fa-fw text-gray-400"></i> Rol administrador
+				</a>
+
 			</div>
+
 		</div></li>
 
 
