@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
@@ -28,7 +29,7 @@ public class Dispositivo {
 
 	private String nombre;
 	
-	@Column(unique = true)
+//	@Column(unique = true)
 	private String mac;
 	private String ubicacion;
 	private PrivacidadDispositivo privacidad;
@@ -37,5 +38,6 @@ public class Dispositivo {
 	private List<Usuario> usuarios; 
 
 	@OneToMany
+	@JoinColumn(name = "dispositivo_id")
 	private List<Sensor> sensores;
 }

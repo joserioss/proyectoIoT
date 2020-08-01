@@ -26,9 +26,9 @@ public class Sensor {
 	private String nombre;
 	private String descripcion;
 	private TipoSensor tipo;
-	private Integer dato;
 	
 	@ManyToOne
+	@JoinColumn(name = "dispositivo_id", insertable = false, updatable = false)
 	private Dispositivo dispositivo;
 
 }

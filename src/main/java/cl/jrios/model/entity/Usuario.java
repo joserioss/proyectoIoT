@@ -23,13 +23,12 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-
-	private String username;
+	private String nombre;
 	private String correo;
-	private String password;
+	private String contrasenia;
 	private RolUsuario rol;
 
 	@ManyToMany
-	private List<Dispositivo> dispositivo;
+	private List<Dispositivo> dispositivos;
 
 }
