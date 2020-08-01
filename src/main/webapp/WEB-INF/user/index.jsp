@@ -49,8 +49,8 @@
 								aria-haspopup="true" aria-expanded="false">Dispositivos
 								disponibles</button>
 							<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-								<a class="dropdown-item" href="dashboard">ESP8266-3</a>
-								<a class="dropdown-item" href="dashboard">ESP8266-4</a>
+								<a class="dropdown-item" href="/user">ESP8266-3</a> <a
+									class="dropdown-item" href="/user">ESP8266-4</a>
 							</div>
 						</div>
 					</div>
@@ -86,7 +86,7 @@
 									</div>
 								</div>
 								<!-- Menu del grafico -->
-								
+
 							</div>
 							<!-- Card Body -->
 							<div class="card-body">

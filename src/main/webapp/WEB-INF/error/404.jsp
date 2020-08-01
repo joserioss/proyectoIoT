@@ -44,7 +44,7 @@
 						<p class="lead text-gray-800 mb-5">Page Not Found</p>
 						<p class="text-gray-500 mb-0">Parece que encontraste una falla
 							en la matriz ...</p>
-						<a href="<c:url value = "/usuarios"/>">&larr; Volver</a>
+						<a href="<c:url value = "/home"/>">&larr; Volver</a>
 					</div>
 
 				</div>

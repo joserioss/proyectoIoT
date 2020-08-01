@@ -44,10 +44,12 @@
 				<div class="container-fluid">
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">Bienvenido: <c:out value="${username}"></c:out> </h1>
+						<h1 class="h3 mb-0 text-gray-800">
+							Bienvenido:
+							<c:out value="${username}"></c:out>
+						</h1>
 
-
-						<a href="<c:url value = 'home/dashboard' />"
+						<a href="<c:url value = '/user' />"
 							class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
 							<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
 						</a>
@@ -98,7 +100,7 @@
 												<td>Movimiento</td>
 												<td>60:01:94:61:B1:FD</td>
 												<td>Puente Alto</td>
-												<td><a href="<c:url value = "home/dashboard"/>"
+												<td><a href="<c:url value = "/user"/>"
 													class="btn btn-success btn-circle btn-sm"> <i
 														class="fas fa-arrow-right"></i>
 												</a></td>
@@ -112,7 +114,7 @@
 												<td>Movimiento</td>
 												<td>2C:3A:E8:42:0E:53</td>
 												<td>Rancagua</td>
-												<td><a href="<c:url value = "home/dashboard"/>"
+												<td><a href="<c:url value = "/user"/>"
 													class="btn btn-success btn-circle btn-sm"> <i
 														class="fas fa-arrow-right"></i>
 												</a></td>
