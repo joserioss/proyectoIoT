@@ -1,34 +1,32 @@
 package cl.jrios.model.entity;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 
+import cl.jrios.config.EncoderUtils;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Data
 @Entity
 public class Usuario {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
-	private String nombre;
-	private String correo;
-	private String contrasenia;
-	private RolUsuario rol;
-
-	@ManyToMany
-	private List<Dispositivo> dispositivos;
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Setter @Getter private Integer id;
+    @Setter @Getter private String nombre;
+    @Setter @Getter private String correo;
+    @Getter private String contrasenia;
+    @Setter @Getter private Rol rol;
+    
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = EncoderUtils.passwordEncoder().encode(contrasenia);
+    }
 }

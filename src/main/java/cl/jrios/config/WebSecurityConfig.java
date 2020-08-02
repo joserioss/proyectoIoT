@@ -1,59 +1,50 @@
 package cl.jrios.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
+import cl.jrios.service.AuthServiceImpl;
 
 @EnableWebSecurity
 @Configuration
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+	private UserDetailsService servicioDetallesDeUsuario;
+	private AuthenticationSuccessHandler manejadorDeAutentificacion;
 
-	
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception{
-    	String adminUsername = "admin@mail.cl";
-    	String adminPassword = passwordEncoder().encode("1234");
-    	String adminRole = "ADMIN";
-    	
+	@Autowired
+	public WebSecurityConfig(AuthServiceImpl servicioDetallesDeUsuario,
+			ManejadorDeAutentificacionPersonalizado manejadorDeAutentificacion) {
 
-    	String userUsername = "user@mail.cl";
-    	String userPassword = passwordEncoder().encode("1234");
-    	String userRole = "USER";
-    	
-    	auth.inMemoryAuthentication()
-    	.withUser(adminUsername).password(adminPassword).roles(adminRole)
-    	.and()
-    	.withUser(userUsername).password(userPassword).roles(userRole);
-    	
-       }
-    
-    @Override
-    public void configure(HttpSecurity http)throws Exception {
-        http.csrf().disable()
-        .authorizeRequests()
-        .antMatchers("/admin/**").hasRole("ADMIN")
-        .antMatchers("/login").permitAll()
-        .antMatchers("/registro").permitAll()
-        .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-        .anyRequest().authenticated()
-        .and().formLogin().loginPage("/login").permitAll()
-        .failureUrl("/login?error=true")
-        //***********************************************************
-        .usernameParameter("correo").passwordParameter("contrasenia")
-        .defaultSuccessUrl("/")
-        .and().exceptionHandling().accessDeniedPage("/recurso-prohibido");
-    }
-    
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder(){
-    	return new BCryptPasswordEncoder();
-    	
-    }
-    
+		this.servicioDetallesDeUsuario = servicioDetallesDeUsuario;
+		this.manejadorDeAutentificacion = manejadorDeAutentificacion;
+	}
+
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(servicioDetallesDeUsuario).passwordEncoder(EncoderUtils.passwordEncoder());
+
+	}
+
+	@Override
+	public void configure(HttpSecurity http) throws Exception {
+		http.csrf().disable().authorizeRequests()
+		.antMatchers("/admin/**").hasRole("ADMIN")
+		.antMatchers("/login").permitAll()
+		.antMatchers("/registro").permitAll()
+		.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+		.anyRequest().authenticated()
+		.and().formLogin().loginPage("/login")
+		.successHandler(manejadorDeAutentificacion)
+		.failureUrl("/login?error=true")
+		.usernameParameter("correo").passwordParameter("contrasenia")
+		.and().exceptionHandling().accessDeniedPage("/recurso-prohibido");
+	}
+
 }

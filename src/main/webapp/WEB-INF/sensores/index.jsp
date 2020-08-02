@@ -175,6 +175,9 @@
 	<!-- footer scripts -->
 	<jsp:include page="../includes/footerscripts.jsp"></jsp:include>
 	<!-- footer scripts -->
+	<!-- footer data Table -->
+	<jsp:include page="../includes/footersDataTable.jsp"></jsp:include>
+	<!-- footer data Table -->
 </body>
 
 </html>

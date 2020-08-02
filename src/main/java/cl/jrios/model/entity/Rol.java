@@ -1,6 +1,6 @@
 package cl.jrios.model.entity;
 
-public enum RolUsuario {
+public enum Rol {
 
     ROLE_ADMIN, ROLE_USER
 }

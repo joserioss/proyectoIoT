@@ -58,6 +58,7 @@
 				</div>
 
 				<hr class="sidebar-divider my-0">
+				
 				<div class="card o-hidden border-0 shadow-lg my-5">
 
 					<div class="container-fluid">
@@ -72,7 +73,7 @@
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">
-									<table class="table table-bordered" id="dataTable" width="100%"
+									<table class="table table-bordered" id="dataTable" width="95%"
 										cellspacing="0">
 										<thead>
 											<tr>
@@ -239,6 +240,10 @@
 		<!-- footer scripts -->
 		<jsp:include page="../includes/footerscripts.jsp"></jsp:include>
 		<!-- footer scripts -->
+		<!-- footer data Table -->
+		<jsp:include page="../includes/footersDataTable.jsp"></jsp:include>
+		<!-- footer data Table -->
+
 </body>
 
 </html>

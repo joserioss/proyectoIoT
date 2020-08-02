@@ -1,43 +1,48 @@
 package cl.jrios.service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import cl.jrios.model.dao.UsuarioRepository;
 import cl.jrios.model.dto.UsuarioDto;
 import cl.jrios.model.entity.Usuario;
 
 @Service
-public class UsuarioService{
-
-	private static final Logger log = LoggerFactory.getLogger(UsuarioService.class);
+public class UsuarioService {
+	private Logger logger = LoggerFactory.getLogger(UsuarioService.class);
 
 	@Autowired
 	private UsuarioRepository dao;
 
-	private UsuarioDto respuesta;
+	public UsuarioDto registrarUsuario(Usuario usuario) {
+		UsuarioDto usuarioDto = new UsuarioDto();
 
-	public UsuarioDto llenarUsuarioDto() {
-		List<Usuario> usuarios = new ArrayList<>();
-		String mensaje = "Ha ocurrido un error";
-		String codigo = "-1";
+		Usuario usuarioEnBase = dao.findByCorreo(usuario.getCorreo()).orElse(null);
 
-		respuesta = new UsuarioDto(usuarios, mensaje, codigo);
-
-		try {
-			respuesta.setUsuarios(dao.findAll());
-			respuesta.setMensaje("Éxito");
-			respuesta.setCodigo("0");
-		} catch (Exception e) {
-			log.trace("Usuario Service: Error en llenarUsuarioDto", e);
+		if (usuarioEnBase != null) {
+			usuarioDto.setUsuario(usuarioEnBase);
+			logger.warn("El usuario que desea ingresar ya existe");
+		} else {
+			usuarioDto.setUsuario(dao.save(usuario));
 		}
-		return respuesta;
+
+		return usuarioDto;
 	}
 
+	public UsuarioDto llenarUsuarios() {
+		UsuarioDto usuarioDto = new UsuarioDto(new Usuario(), dao.findAll());
+
+		return usuarioDto;
+	}
+
+	public String buscarUsuarioPorCorreo(String correo) {
+		Optional<Usuario> usuarioDto = Optional.empty();
+		usuarioDto = dao.findByCorreo(correo);
+		String nombre = usuarioDto.get().getNombre();
+		return nombre;
+	}
 }

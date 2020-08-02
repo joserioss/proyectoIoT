@@ -2,25 +2,21 @@ package cl.jrios.model.dto;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import cl.jrios.model.entity.Usuario;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @ToString
-public class UsuarioDto extends GenericDto{
-	
-	@Setter
-	@Getter
+@Component
+@Data
+public class UsuarioDto{
+	private Usuario usuario;
 	private List<Usuario> usuarios;
-	
-	public UsuarioDto(String mensaje, String codigo){
-		super(mensaje, codigo);
-	}
-	
-	public UsuarioDto(List<Usuario> usuarios, String mensaje, String codigo) {
-		super(mensaje, codigo);
-		this.usuarios = usuarios;
-	}
 
 }

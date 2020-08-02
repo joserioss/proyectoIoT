@@ -103,7 +103,7 @@
 												<div class="card-body">
 													<div class="table-responsive">
 														<table class="table table-bordered" id="dataTable"
-															width="100%" cellspacing="0">
+															width="95%" cellspacing="0">
 															<thead>
 																<tr>
 																	<th>Id</th>
@@ -174,6 +174,9 @@
 	<!-- footer scripts -->
 	<jsp:include page="../includes/footerscripts.jsp"></jsp:include>
 	<!-- footer scripts -->
+	<!-- footer data Table -->
+	<jsp:include page="../includes/footersDataTable.jsp"></jsp:include>
+	<!-- footer data Table -->
 </body>
 
 </html>

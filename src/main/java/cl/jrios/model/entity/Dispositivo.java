@@ -34,8 +34,8 @@ public class Dispositivo {
 	private String ubicacion;
 	private PrivacidadDispositivo privacidad;
 	
-	@ManyToMany
-	private List<Usuario> usuarios; 
+//	@ManyToMany
+//	private List<Usuario> usuarios; 
 
 	@OneToMany
 	@JoinColumn(name = "dispositivo_id")

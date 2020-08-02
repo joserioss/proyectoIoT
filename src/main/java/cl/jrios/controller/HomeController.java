@@ -25,12 +25,7 @@ public class HomeController {
                 .getAuthentication();
         String name = auth.getName();
         modelo.addAttribute("username", name);
-
+        
         return "home/index";
     }
-	
-//	@GetMapping("/dashboard")
-//	public String dashboard(ModelMap mapa) {
-//		return "home/dashboard";
-//	}
 }

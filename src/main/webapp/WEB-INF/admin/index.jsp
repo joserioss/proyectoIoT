@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="cl.jrios.model.entity.Rol"%>
 
 <!DOCTYPE html>
 <html>
@@ -32,7 +33,11 @@
 			<hr class="sidebar-divider">
 
 			<!-- Heading -->
-			<div class="sidebar-heading">Sesión</div>
+			<div class="sidebar-heading">
+				Sesión:
+				<c:out value="${username}"></c:out>
+			</div>
+
 
 			<!-- Nav Item - Pages Collapse Menu -->
 			<li class="nav-item"><a class="nav-link collapsed" href="#"
@@ -114,9 +119,10 @@
 															<thead>
 																<tr>
 																	<th>Id</th>
-																	<th>Alias</th>
-																	<th>Email</th>
-																	<th>Password</th>
+																	<th>Nombre</th>
+																	<th>Correo</th>
+																	<th>Contraseña</th>
+																	<th>Rol</th>
 																	<th>Actualizar</th>
 																	<th>Eliminar</th>
 																</tr>
@@ -124,28 +130,34 @@
 															<tfoot>
 																<tr>
 																	<th>Id</th>
-																	<th>Alias</th>
-																	<th>Email</th>
-																	<th>Password</th>
+																	<th>Nombre</th>
+																	<th>Correo</th>
+																	<th>Contraseña</th>
+																	<th>Rol</th>
 																	<th>Actualizar</th>
 																	<th>Eliminar</th>
 																</tr>
 															</tfoot>
 															<tbody>
-																<tr>
-																	<td>1</td>
-																	<td>Jose</td>
-																	<td>jose@mail.cl</td>
-																	<td>1234</td>
-																	<td><a href="dashboard"
-																		class="btn btn-success btn-circle btn-sm"> <i
-																			class="fas fa-arrow-right"></i>
-																	</a></td>
-																	<td><a href="#"
-																		class="btn btn-danger btn-circle btn-sm"> <i
-																			class="fas fa-trash"></i>
-																	</a></td>
-																</tr>
+
+																<c:forEach var="usuario" items="${usuarioDto.usuarios}">
+																	<tr>
+																		<td>${usuario.id}</td>
+																		<td>${usuario.nombre}</td>
+																		<td>${usuario.correo}</td>
+																		<td>${usuario.contrasenia.substring(0, 10)}***</td>
+																		<td>${usuario.rol}</td>
+																		<td><a href="dashboard"
+																			class="btn btn-success btn-circle btn-sm"> <i
+																				class="fas fa-arrow-right"></i>
+																		</a></td>
+																		<td><a href="#"
+																			class="btn btn-danger btn-circle btn-sm"> <i
+																				class="fas fa-trash"></i>
+																		</a></td>
+																	</tr>
+																</c:forEach>
+
 															</tbody>
 														</table>
 													</div>
@@ -164,40 +176,45 @@
 						<div class="card-body p-0">
 							<div class="row">
 								<div class="col-lg-12">
-									<div class="p-5">
-										<div class="text-center">
-											<h1 class="h4 text-gray-900 mb-4">Registrar nuevo
-												usuario</h1>
-										</div>
-										<form class="user">
-											<div class="form-group row">
-												<input type="text" class="form-control form-control-user"
-													id="exampleFirstName"
-													placeholder="Nombre de nuevo usuario (Alias)">
-											</div>
-											<div class="form-group">
-												<input type="email" class="form-control form-control-user"
-													id="inputEmail" placeholder="Email del nuevo usuario">
-											</div>
-											<div class="form-group row">
-												<div class="col-sm-6 mb-3 mb-sm-0">
-													<input type="password"
-														class="form-control form-control-user" id="inputPassword"
-														placeholder="Password">
-												</div>
-												<div class="col-sm-6">
-													<input type="password"
-														class="form-control form-control-user" id="repeatPassword"
-														placeholder="Repita Password">
-												</div>
-											</div>
-											<a href="/" class="btn btn-primary btn-user btn-block">
-												Registrar cuenta </a>
-											<hr>
-										</form>
-										<hr>
+									<main>
+										<div class="container-fluid">
+											<h1 class="mt-4">Administrador:</h1>
 
-									</div>
+											<form action="<c:url value='/admin' />" method="post">
+
+												<!-- nombre -->
+												<div class="form-group">
+													<label for="nombre">Nombre</label> <input type="text"
+														class="form-control" id="nombre" name="nombre">
+												</div>
+
+												<!-- correo -->
+												<div class="form-group">
+													<label for="correo">Correo</label> <input type="email"
+														class="form-control" id="correo" name="correo">
+												</div>
+
+												<!-- contraseña -->
+												<div class="form-group">
+													<label for="correo">Contraseña</label> <input
+														type="password" class="form-control" id="contrasenia"
+														name="contrasenia">
+												</div>
+
+												<div class="form-group">
+													<label for="rol">Rol</label> <select class="form-control"
+														id="rol" name="rol">
+														<c:forEach var="rol" items="${Rol.values()}">
+															<option value="${rol}">${rol}</option>
+														</c:forEach>
+													</select>
+												</div>
+
+												<button type="submit" class="btn btn-primary">Submit</button>
+											</form>
+
+										</div>
+									</main>
 								</div>
 							</div>
 						</div>
@@ -221,6 +238,9 @@
 	<!-- footer scripts -->
 	<jsp:include page="../includes/footerscripts.jsp"></jsp:include>
 	<!-- footer scripts -->
+	<!-- footer data Table -->
+	<jsp:include page="../includes/footersDataTable.jsp"></jsp:include>
+	<!-- footer data Table -->
 
 </body>
 </html>

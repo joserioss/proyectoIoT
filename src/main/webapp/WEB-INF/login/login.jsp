@@ -43,7 +43,7 @@
 					<div class="card-body p-0">
 						<!-- Nested Row within Card Body -->
 						<div class="row">
-							<div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+							<div class="col-lg-3"></div>
 							<div class="col-lg-6">
 								<div class="p-5">
 									<div class="text-center">
@@ -80,12 +80,12 @@
 										<div
 											class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
 											<button class="btn btn-primary btn-user btn-block"
-												type="submit">Ingresar</button>
+												type="submit">Login</button>
 										</div>
-										<hr>
+
 									</form>
 									<!-- formulario de login # -->
-
+									<hr>
 									<div class="text-center">
 										<a class="small" href="registro">¡Registrate gratis!</a>
 									</div>
