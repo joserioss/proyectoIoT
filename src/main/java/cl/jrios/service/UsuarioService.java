@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import cl.jrios.config.EncoderUtils;
 import cl.jrios.model.dao.UsuarioRepository;
 import cl.jrios.model.dto.UsuarioDto;
 import cl.jrios.model.entity.Usuario;
@@ -45,4 +46,19 @@ public class UsuarioService {
 		String nombre = usuarioDto.get().getNombre();
 		return nombre;
 	}
+
+	public UsuarioDto obtenerPorId(Integer id) {
+		UsuarioDto aux = new UsuarioDto();
+		aux.setUsuario(dao.findById(id).orElse(null));
+		return aux;
+	}
+
+    public UsuarioDto eliminarUsuario(Integer id) {
+        UsuarioDto dto = new UsuarioDto();
+        dto.setUsuario(dao.findById(id).orElse(null));
+
+        dao.delete(dto.getUsuario());
+        
+        return dto;
+    }
 }

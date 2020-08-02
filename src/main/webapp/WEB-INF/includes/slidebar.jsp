@@ -45,7 +45,7 @@
 	<hr class="sidebar-divider">
 
 	<!-- Heading -->
-	<div class="sidebar-heading">Sesión</div>
+	<div class="sidebar-heading">Sesión: <br> <c:out value="${username}"></c:out></div>
 
 	<!-- Nav Item - Pages Collapse Menu -->
 	<li class="nav-item"><a class="nav-link collapsed" href="#"
@@ -65,17 +65,14 @@
 					Cerrar sesión
 				</a>
 
-
-				<h6 class="collapse-header">Actualizar</h6>
-
 				<a class="dropdown-item" href="registro"> <i
 					class="fa fa-book fa-fw text-gray-400"></i> Actualizar datos
 				</a>
 
 				<h6 class="collapse-header">Admin</h6>
 
-				<a class="dropdown-item" href="admin"> <i
-					class="fa fa-book fa-fw text-gray-400"></i> Rol administrador
+				<a class="dropdown-item" href="<c:url value = "/admin"/>"> <i
+					class="fa fa-book fa-fw text-gray-400"></i> Mantenedor de usuarios
 				</a>
 
 			</div>

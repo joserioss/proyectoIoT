@@ -34,7 +34,7 @@
 
 			<!-- Heading -->
 			<div class="sidebar-heading">
-				Sesión:
+				Sesión: <br>
 				<c:out value="${username}"></c:out>
 			</div>
 
@@ -123,7 +123,6 @@
 																	<th>Correo</th>
 																	<th>Contraseña</th>
 																	<th>Rol</th>
-																	<th>Actualizar</th>
 																	<th>Eliminar</th>
 																</tr>
 															</thead>
@@ -134,7 +133,6 @@
 																	<th>Correo</th>
 																	<th>Contraseña</th>
 																	<th>Rol</th>
-																	<th>Actualizar</th>
 																	<th>Eliminar</th>
 																</tr>
 															</tfoot>
@@ -147,11 +145,8 @@
 																		<td>${usuario.correo}</td>
 																		<td>${usuario.contrasenia.substring(0, 10)}***</td>
 																		<td>${usuario.rol}</td>
-																		<td><a href="dashboard"
-																			class="btn btn-success btn-circle btn-sm"> <i
-																				class="fas fa-arrow-right"></i>
-																		</a></td>
-																		<td><a href="#"
+																		<td><a
+																			href='<c:out value="/admin/eliminar?id=${usuario.getId()}" />'
 																			class="btn btn-danger btn-circle btn-sm"> <i
 																				class="fas fa-trash"></i>
 																		</a></td>

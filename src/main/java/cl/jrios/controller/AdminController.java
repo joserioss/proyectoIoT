@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import cl.jrios.model.dto.UsuarioDto;
 import cl.jrios.model.entity.Usuario;
@@ -22,23 +24,36 @@ public class AdminController {
 	private UsuarioService servicio;
 
 	@GetMapping
-	public String administrador(ModelMap modelo) {
-		// capturo el nombre de usuario
+	public String administradorIndex(ModelMap modelo) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String name = auth.getName();
 		modelo.addAttribute("username", name);
 
 		modelo.put("usuarioDto", servicio.llenarUsuarios());
-		
+
 		return "admin/index";
 	}
-	
-    @PostMapping
-    public String usuario( @ModelAttribute Usuario usuario) {
-        UsuarioDto usuarioDto = servicio.registrarUsuario(usuario);
-        if(usuarioDto.getUsuario() == null)
-            return "admin";
 
-        return "redirect:admin";
+	@PostMapping
+	public String mantenedorUsuarios(@ModelAttribute Usuario usuario) {
+		UsuarioDto usuarioDto = servicio.registrarUsuario(usuario);
+		if (usuarioDto.getUsuario() == null)
+			return "admin";
+
+		return "redirect:admin";
+	}
+
+    @RequestMapping(value = "/eliminar")
+    public String eliminar(
+        ModelMap modelo,
+        @RequestParam(name = "id") Integer id,
+        RedirectAttributes attributes
+    ) {
+
+        servicio.eliminarUsuario(id);
+
+        return "redirect:/admin";
     }
+	
+	
 }
