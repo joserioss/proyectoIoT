@@ -26,10 +26,10 @@ public class ManejadorDeAutentificacionPersonalizado implements AuthenticationSu
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
         
         if(roles.contains("ROLE_ADMIN")) {
-            response.sendRedirect("/admin");
+            response.sendRedirect("/home");
         }
         else if(roles.contains("ROLE_USER")){
-        	response.sendRedirect("/user");
+        	response.sendRedirect("/home");
         }else {
             response.sendRedirect("/home");
         }

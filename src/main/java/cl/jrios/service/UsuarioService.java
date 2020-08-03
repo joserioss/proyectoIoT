@@ -35,9 +35,12 @@ public class UsuarioService {
 		return usuarioDto;
 	}
 
+	// Servicio que recibe datos desde un formulario exterior y crea a un usuario
+	// del sistema con rol USER
+
 	public Usuario registrarUsuarioExterno(RegistroDto registroUsuario) {
 		Usuario usuario = new Usuario();
-		
+
 		boolean contraseniaOk = registroUsuario.getContrasenia().equals(registroUsuario.getContrasenia_());
 		if (contraseniaOk) {
 			usuario.setId(null);
@@ -46,6 +49,7 @@ public class UsuarioService {
 			usuario.setContrasenia(registroUsuario.getContrasenia());
 			usuario.setRol(Rol.ROLE_USER);
 			registrarUsuario(usuario);
+			logger.info("Usuario Registrado");
 		} else {
 			logger.warn("Contraseñas incorrectas");
 		}
