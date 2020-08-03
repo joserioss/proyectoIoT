@@ -6,17 +6,24 @@ import org.springframework.stereotype.Component;
 
 import cl.jrios.model.entity.Usuario;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Component
-@Data
-public class UsuarioDto{
+public class UsuarioDto {
+	@Getter
 	private Usuario usuario;
+	@Setter
+	@Getter
 	private List<Usuario> usuarios;
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 }

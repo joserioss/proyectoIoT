@@ -7,9 +7,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import cl.jrios.config.EncoderUtils;
 import cl.jrios.model.dao.UsuarioRepository;
+import cl.jrios.model.dto.RegistroDto;
 import cl.jrios.model.dto.UsuarioDto;
+import cl.jrios.model.entity.Rol;
 import cl.jrios.model.entity.Usuario;
 
 @Service
@@ -34,6 +35,23 @@ public class UsuarioService {
 		return usuarioDto;
 	}
 
+	public Usuario registrarUsuarioExterno(RegistroDto registroUsuario) {
+		Usuario usuario = new Usuario();
+		
+		boolean contraseniaOk = registroUsuario.getContrasenia().equals(registroUsuario.getContrasenia_());
+		if (contraseniaOk) {
+			usuario.setId(null);
+			usuario.setNombre(registroUsuario.getNombre());
+			usuario.setCorreo(registroUsuario.getCorreo());
+			usuario.setContrasenia(registroUsuario.getContrasenia());
+			usuario.setRol(Rol.ROLE_USER);
+			registrarUsuario(usuario);
+		} else {
+			logger.warn("Contraseñas incorrectas");
+		}
+		return usuario;
+	}
+
 	public UsuarioDto llenarUsuarios() {
 		UsuarioDto usuarioDto = new UsuarioDto(new Usuario(), dao.findAll());
 
@@ -53,12 +71,13 @@ public class UsuarioService {
 		return aux;
 	}
 
-    public UsuarioDto eliminarUsuario(Integer id) {
-        UsuarioDto dto = new UsuarioDto();
-        dto.setUsuario(dao.findById(id).orElse(null));
+	public UsuarioDto eliminarUsuario(Integer id) {
+		UsuarioDto dto = new UsuarioDto();
+		dto.setUsuario(dao.findById(id).orElse(null));
 
-        dao.delete(dto.getUsuario());
-        
-        return dto;
-    }
+		dao.delete(dto.getUsuario());
+
+		return dto;
+	}
+
 }
