@@ -16,7 +16,7 @@
 <title>IoT - Login</title>
 
 <!-- Custom fonts for this template-->
-<link href="<c:out value='/vendor/fontawesome-free/css/all.min.css'/>"
+<link href="<c:out value='/vendor/fontawesome-free/css/all.css'/>"
 	rel="stylesheet">
 <!-- Custom fonts for this template-->
 
@@ -25,7 +25,7 @@
 	rel="stylesheet">
 
 <!-- Custom styles for this template-->
-<link href="<c:out value='/css/sb-admin-2.min.css'/>" rel="stylesheet">
+<link href="<c:out value='/css/sb-admin-2.css'/>" rel="stylesheet">
 <!-- <link href="css/sb-admin-2.min.css" rel="stylesheet"> -->
 
 </head>

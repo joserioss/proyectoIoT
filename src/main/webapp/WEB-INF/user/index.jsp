@@ -8,6 +8,9 @@
 <head>
 <title>Dashboard</title>
 <jsp:include page="../includes/head.jsp"></jsp:include>
+
+<script src="/webjars/sockjs-client/sockjs.min.js"></script>
+<script src="/webjars/stomp-websocket/stomp.min.js"></script>
 </head>
 
 <body id="page-top">
