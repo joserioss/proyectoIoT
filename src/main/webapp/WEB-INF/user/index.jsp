@@ -134,6 +134,11 @@
 	<!-- footer scripts -->
 	<jsp:include page="../includes/footerscripts.jsp"></jsp:include>
 	<!-- footer scripts -->
+
+	<!-- Script para grafica de dashboard -->
+	<script src="../vendor/chart.js/Chart.min.js"></script>
+	<script src="../js/dashboard.js"></script>
+
 </body>
 
 </html>

@@ -12,7 +12,3 @@
 
 <!-- Custom scripts for all pages-->
 <script src="../js/sb-admin-2.min.js"></script>
-
-<!-- Script para grafica de dashboard -->
-<script src="../vendor/chart.js/Chart.min.js"></script>
-<script src="../js/dashboard.js"></script>

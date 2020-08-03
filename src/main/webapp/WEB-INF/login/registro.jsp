@@ -13,18 +13,16 @@
 <meta name="author" content="Jose Rios">
 
 
+<title>Registro de Usuario</title>
 
 <!-- Custom fonts for this template-->
-<link href="<c:out value='vendor/fontawesome-free/css/all.css'/>"
-	rel="stylesheet" type="text/css">
+<link href="<c:out value='/vendor/fontawesome-free/css/all.css'/>"
+	rel="stylesheet">
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
-
+<link href="<c:out value='/css/sb-admin-2.css'/>" rel="stylesheet">
 <!-- Custom styles for this template-->
-<link href="<c:out value='css/sb-admin-2.css'/>" rel="stylesheet">
-
-<title>Registro de Usuario</title>
 
 </head>
 
@@ -73,11 +71,11 @@
 									</div>
 								</div>
 								<div class="col-lg-12">
-                                        <div class="form-group">
-                                            <input class="form-control" type="password" id="contrasenia_"
-                                                name="contrasenia_" placeholder="tu contraseña otra vez">
-                                        </div>
-                                    </div>
+									<div class="form-group">
+										<input class="form-control" type="password" id="contrasenia_"
+											name="contrasenia_" placeholder="tu contraseña otra vez">
+									</div>
+								</div>
 								<div class="col-lg-12 text-center">
 									<button type="submit" class="btn btn-block btn-dark">Ingresar</button>
 								</div>

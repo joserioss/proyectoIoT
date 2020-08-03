@@ -34,13 +34,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN").antMatchers("/login")
-				.permitAll().antMatchers("/registro").permitAll()
-
-				.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll().anyRequest()
-				.authenticated().and().formLogin().loginPage("/login").successHandler(manejadorDeAutentificacion)
-				.failureUrl("/login?error=true").usernameParameter("correo").passwordParameter("contrasenia").and()
-				.exceptionHandling().accessDeniedPage("/recurso-prohibido");
+		http.csrf().disable().authorizeRequests().antMatchers("/img/**", "/css/**", "/js/**", "/vendor/**").permitAll()
+				.antMatchers("/admin/**").hasRole("ADMIN").antMatchers("/login").permitAll().antMatchers("/registro")
+				.permitAll().requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+				.anyRequest().authenticated().and().formLogin().loginPage("/login")
+				.successHandler(manejadorDeAutentificacion).failureUrl("/login?error=true").usernameParameter("correo")
+				.passwordParameter("contrasenia").and().exceptionHandling().accessDeniedPage("/recurso-prohibido");
 	}
 
 }
