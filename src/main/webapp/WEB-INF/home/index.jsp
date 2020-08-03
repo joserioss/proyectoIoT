@@ -25,30 +25,33 @@
 			<!-- Main Content -->
 			<div id="content">
 
-				<!-- Topbar -->
-				<nav
-					class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+				<!-- Menú superior -->
+				<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+					<h1 class="h3 mb-0 text-gray-100">Sección central</h1>
 
-					<!-- Sidebar Toggle (Topbar) -->
-					<button id="sidebarToggleTop"
-						class="btn btn-link d-md-none rounded-circle mr-3">
-						<i class="fa fa-bars"></i>
-					</button>
-
-
-
+					<ul class="navbar-nav ml-auto mr-0 mr-md-2">
+						<!-- Menú usuario -->
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" id="userDropdown" href="#"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+							<div class="dropdown-menu dropdown-menu-right"
+								aria-labelledby="userDropdown">
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="/" data-toggle="modal"
+									data-target="#logoutModal">Logout</a>
+							</div></li>
+						<!-- Menú usuario -->
+					</ul>
 				</nav>
-				<!-- End of Topbar -->
-
+				<!-- Menú superior -->
+				<hr>
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">
-							Bienvenido:
-							<c:out value="${username}"></c:out>
-						</h1>
 
+						<h1 class="h3 mb-0 text-gray-800"></h1>
 						<a href="<c:url value = '/user' />"
 							class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
 							<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
@@ -58,7 +61,7 @@
 				</div>
 
 				<hr class="sidebar-divider my-0">
-				
+
 				<div class="card o-hidden border-0 shadow-lg my-5">
 
 					<div class="container-fluid">
@@ -235,6 +238,10 @@
 				<jsp:include page="../includes/modalLogout.jsp"></jsp:include>
 				<!-- Modal Logout -->
 			</div>
+
+			<!-- Footer -->
+			<jsp:include page="../includes/footers.jsp"></jsp:include>
+			<!-- End of Footer -->
 		</div>
 
 		<!-- footer scripts -->
@@ -243,7 +250,6 @@
 		<!-- footer data Table -->
 		<jsp:include page="../includes/footersDataTable.jsp"></jsp:include>
 		<!-- footer data Table -->
-
 </body>
 
 </html>

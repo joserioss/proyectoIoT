@@ -85,16 +85,27 @@
 
 			<!-- Main Content -->
 			<div id="content">
-				<!-- Topbar -->
-				<nav
-					class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-					<!-- Sidebar Toggle (Topbar) -->
-					<button id="sidebarToggleTop"
-						class="btn btn-link d-md-none rounded-circle mr-3">
-						<i class="fa fa-bars"></i>
-					</button>
+				<!-- Menú superior -->
+				<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+					<h1 class="h3 mb-0 text-gray-100">Acceso privado</h1>
+
+					<ul class="navbar-nav ml-auto mr-0 mr-md-2">
+						<!-- Menú usuario -->
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" id="userDropdown" href="#"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+							<div class="dropdown-menu dropdown-menu-right"
+								aria-labelledby="userDropdown">
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="/" data-toggle="modal"
+									data-target="#logoutModal">Logout</a>
+							</div></li>
+						<!-- Menú usuario -->
+					</ul>
 				</nav>
-				<!-- End of Topbar -->
+				<!-- Menú superior -->
+				<hr>
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
 
@@ -217,6 +228,10 @@
 					<!-- Fin registro -->
 				</div>
 				<!-- End Page Content -->
+
+				<!-- Footer -->
+				<jsp:include page="../includes/footers.jsp"></jsp:include>
+				<!-- End of Footer -->
 			</div>
 			<!-- End of Main Content -->
 
@@ -229,6 +244,7 @@
 			<jsp:include page="../includes/modalLogout.jsp"></jsp:include>
 			<!-- Modal Logout -->
 		</div>
+
 	</div>
 	<!-- footer scripts -->
 	<jsp:include page="../includes/footerscripts.jsp"></jsp:include>

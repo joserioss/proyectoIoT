@@ -25,16 +25,26 @@
 			<!-- Main Content -->
 			<div id="content">
 
-				<!-- Topbar -->
-				<nav
-					class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-					<!-- Sidebar Toggle (Topbar) -->
-					<button id="sidebarToggleTop"
-						class="btn btn-link d-md-none rounded-circle mr-3">
-						<i class="fa fa-bars"></i>
-					</button>
+				<!-- Menú superior -->
+				<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+					<h1 class="h3 mb-0 text-gray-100">Dashboard</h1>
+
+					<ul class="navbar-nav ml-auto mr-0 mr-md-2">
+						<!-- Menú usuario -->
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" id="userDropdown" href="#"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+							<div class="dropdown-menu dropdown-menu-right"
+								aria-labelledby="userDropdown">
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="/" data-toggle="modal"
+									data-target="#logoutModal">Logout</a>
+							</div></li>
+						<!-- Menú usuario -->
+					</ul>
 				</nav>
-				<!-- End of Topbar -->
+				<!-- Menú superior -->
 
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
@@ -42,7 +52,7 @@
 					<!-- Page Heading -->
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+						<h1 class="h3 mb-0 text-gray-800"></h1>
 						<div class="btn-group" role="group">
 							<button id="btnGroupDrop1" type="button"
 								class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
@@ -100,6 +110,9 @@
 				</div>
 
 				<div class="col-xl-1 col-lg-1"></div>
+				<!-- Footer -->
+				<jsp:include page="../includes/footers.jsp"></jsp:include>
+				<!-- End of Footer -->
 			</div>
 
 			<!-- End of Page Wrapper -->
