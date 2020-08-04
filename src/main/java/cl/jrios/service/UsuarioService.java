@@ -83,5 +83,9 @@ public class UsuarioService {
 
 		return dto;
 	}
+	
+	public Usuario actualizarse() {
+		return new Usuario();
+	} 
 
 }

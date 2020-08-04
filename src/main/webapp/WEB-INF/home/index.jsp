@@ -39,7 +39,8 @@
 								aria-labelledby="userDropdown">
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="/" data-toggle="modal"
-									data-target="#logoutModal">Logout</a>
+									data-target="#logoutModal"><i class="fa fa-book fa-fw"></i>Logout</a>
+								<a class="dropdown-item" href="/user"><i class="fas fa-fw fa-tachometer-alt"></i> Dashboard</a>
 							</div></li>
 						<!-- Menú usuario -->
 					</ul>

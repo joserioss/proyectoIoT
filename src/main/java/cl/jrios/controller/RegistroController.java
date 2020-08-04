@@ -1,5 +1,7 @@
 package cl.jrios.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -15,6 +17,7 @@ import cl.jrios.service.UsuarioService;
 @Controller
 @RequestMapping("/registro")
 public class RegistroController {
+	private Logger logger = LoggerFactory.getLogger(RegistroController.class);
 
 	@Autowired
 	private UsuarioService servicio;

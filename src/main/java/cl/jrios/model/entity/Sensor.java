@@ -1,6 +1,7 @@
 package cl.jrios.model.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,7 +28,7 @@ public class Sensor {
 	private String descripcion;
 	private TipoSensor tipo;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "dispositivo_id", insertable = false, updatable = false)
 	private Dispositivo dispositivo;
 

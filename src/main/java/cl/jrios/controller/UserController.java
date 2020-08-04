@@ -2,6 +2,8 @@ package cl.jrios.controller;
 
 import java.util.Random;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.security.core.Authentication;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+	private Logger logger = LoggerFactory.getLogger(UserController.class);
 
 	@GetMapping
 	public String dashboard(ModelMap modelo) {
@@ -22,10 +25,9 @@ public class UserController {
 		modelo.addAttribute("username", name);
 		return "user/index";
 	}
-	
+
 	@MessageMapping("grafico")
 	@SendTo("/agente/grafico")
-	@GetMapping("/grafico")
 	public Integer[] valores() {
 		Random rnd = new Random();
 

@@ -39,7 +39,7 @@ stompClient
 
 					stompClient
 							.subscribe(
-									'user/agente/grafico',
+									'/agente/grafico',
 									function(numeros) {
 										var datos = JSON.parse(numeros.body)
 

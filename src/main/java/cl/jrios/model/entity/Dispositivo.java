@@ -2,24 +2,21 @@ package cl.jrios.model.entity;
 
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Data
 @Entity
 public class Dispositivo {
 
@@ -27,17 +24,21 @@ public class Dispositivo {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
-	private String nombre;
+	@Setter @Getter private String nombre;
 	
 //	@Column(unique = true)
-	private String mac;
-	private String ubicacion;
-	private PrivacidadDispositivo privacidad;
+	@Setter @Getter private String mac;
+	@Setter @Getter private String ubicacion;
+	@Setter @Getter private PrivacidadDispositivo privacidad;
 	
-//	@ManyToMany
-//	private List<Usuario> usuarios; 
-
-	@OneToMany
-	@JoinColumn(name = "dispositivo_id")
-	private List<Sensor> sensores;
+	@OneToMany( mappedBy = "dispositivo" )
+	@Setter @Getter private List<Sensor> sensores;
+	
+	public Dispositivo agregarSensor(Sensor sensor) {
+		this.sensores.add(sensor);
+		
+		return this;
+	}
+	
+	
 }
