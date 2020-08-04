@@ -29,7 +29,7 @@ public class Sensor {
 	private TipoSensor tipo;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "dispositivo_id", insertable = false, updatable = false)
+	@JoinColumn(name = "dispositivo_id")
 	private Dispositivo dispositivo;
 
 }
