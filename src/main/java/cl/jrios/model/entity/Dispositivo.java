@@ -10,8 +10,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
@@ -41,13 +39,7 @@ public class Dispositivo {
               mappedBy = "dispositivo", orphanRemoval = true)
     private List<Sensor> sensores = new ArrayList<>();
 
-	@ManyToMany(
-		cascade = { CascadeType.PERSIST, CascadeType.MERGE },
-		mappedBy = "dispositivo")
-	@JoinTable(
-		name = "dispositivo_usuario", 
-		joinColumns = @JoinColumn(name = "dispositivo_id"), 
-		inverseJoinColumns = @JoinColumn(name = "usuario_id"))
+	@ManyToMany
 	@Setter @Getter
 	private Set<Usuario> usuarios = new HashSet<>();
 

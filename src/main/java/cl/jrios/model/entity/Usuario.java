@@ -36,17 +36,14 @@ public class Usuario {
     @Setter @Getter 
     private Rol rol;
 
-    @ManyToMany(
-		cascade = { CascadeType.PERSIST, CascadeType.MERGE },
-		mappedBy = "usuario")
+    
+    @Setter @Getter
+    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(
-		name = "dispositivo_usuario", 
+		name = "usuario_dispositivo", 
 		joinColumns = @JoinColumn(name = "usuario_id"), 
 		inverseJoinColumns = @JoinColumn(name = "dispositivo_id"))
-
-	@Setter @Getter
 	private Set<Dispositivo> dispositivos = new HashSet<>();
-   
 
     	// helpers
 	public Usuario asignarDispositivo(Dispositivo dispostivo){

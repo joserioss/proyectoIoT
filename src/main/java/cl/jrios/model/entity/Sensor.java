@@ -19,17 +19,13 @@ import lombok.ToString;
 @Data
 @Entity
 public class Sensor {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-
 	private String nombre;
 	private String descripcion;
 	private TipoSensor tipo;
-	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "dispositivo_id")
 	private Dispositivo dispositivo;
-
 }
