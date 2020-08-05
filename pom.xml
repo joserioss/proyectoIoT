@@ -129,6 +129,14 @@
 			<version>3.3.7</version>
 		</dependency>
 		<!-- Web Socket # -->
+
+		<!-- FAKER -->
+		<dependency>
+			<groupId>com.github.javafaker</groupId>
+			<artifactId>javafaker</artifactId>
+			<version>0.15</version>
+		</dependency>
+		<!-- FAKER # -->
 	</dependencies>
 
 	<build>

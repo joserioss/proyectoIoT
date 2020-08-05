@@ -42,8 +42,9 @@ public class Dispositivo {
 	@ManyToMany
 	@Setter @Getter
 	private Set<Usuario> usuarios = new HashSet<>();
+	
 
-	// helpers
+	// Helpers Many to many
 	public Dispositivo asignarUsuario(Usuario usuario){
 		this.usuarios.add(usuario);
 		return this;
@@ -59,4 +60,21 @@ public class Dispositivo {
 		return this;
 	}
 
+	// Helpers One to Many
+	public void asignarSensor(Sensor sensor) {
+		this.sensores.add(sensor);
+		sensor.setDispositivo(this);
+	}
+	
+	public void quitarSensor(Sensor sensor) {
+		sensor.setDispositivo(null);
+		this.sensores.remove(sensor);
+	}
+	
+	public Dispositivo eliminarSensores() {
+		this.sensores.clear();
+		return this;
+	}
+	
+	
 }

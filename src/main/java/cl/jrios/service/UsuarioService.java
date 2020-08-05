@@ -62,6 +62,19 @@ public class UsuarioService {
 		return usuarioDto;
 	}
 
+	public UsuarioDto eliminarUsuario(Integer id) {
+		UsuarioDto dto = new UsuarioDto();
+		dto.setUsuario(dao.findById(id).orElse(null));
+
+		dao.delete(dto.getUsuario());
+
+		return dto;
+	}
+	
+	public Usuario actualizarUsuario() {
+		return new Usuario();
+	} 
+
 	public String buscarUsuarioPorCorreo(String correo) {
 		Optional<Usuario> usuarioDto = Optional.empty();
 		usuarioDto = dao.findByCorreo(correo);
@@ -74,18 +87,4 @@ public class UsuarioService {
 		aux.setUsuario(dao.findById(id).orElse(null));
 		return aux;
 	}
-
-	public UsuarioDto eliminarUsuario(Integer id) {
-		UsuarioDto dto = new UsuarioDto();
-		dto.setUsuario(dao.findById(id).orElse(null));
-
-		dao.delete(dto.getUsuario());
-
-		return dto;
-	}
-	
-	public Usuario actualizarse() {
-		return new Usuario();
-	} 
-
 }
