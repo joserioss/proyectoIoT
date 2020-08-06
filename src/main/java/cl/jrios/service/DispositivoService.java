@@ -20,43 +20,22 @@ public class DispositivoService {
 	@Autowired
 	private DispositivoRespository dao;
 
-	private DispositivoDto respuesta;
-
-	// OBSERVAR ESTE METODO, INGRESADO POR DEFECTO
-	@Transactional(readOnly = true)
-	public DispositivoDto llenarDispositivoDto() {
-		List<Dispositivo> dispositivos = new ArrayList<>();
-		String mensaje = "Ha ocurrido un error";
-		String codigo = "-1";
-
-		respuesta = new DispositivoDto(dispositivos, mensaje, codigo);
-
-		try {
-			respuesta.setDispositivos(dao.findAll());
-			respuesta.setMensaje("Exito");
-			respuesta.setCodigo("0");
-		} catch (Exception e) {
-			logger.trace("Dispositivo Service: Error en llenarDispositivoDto", e);
-		}
-
-		return respuesta;
-	}
-	//	FIN METODO
-	
-	public DispositivoDto ingresarDispositivo(Dispositivo dispositivo) {
-		List<Dispositivo> dispositivos = new ArrayList<>();
-		String mensaje = "Error";
-		String codigo = "-1";
-		respuesta = new DispositivoDto(dispositivos, mensaje, codigo);
+	public DispositivoDto registrarDispositivo(Dispositivo dispositivo) {
+		DispositivoDto dispositivoDto = new DispositivoDto();
+		Dispositivo dispositivoEnBase = dao.findByMac(dispositivo.getMac()).orElse(null);
 		
-		try {
-			dao.save(dispositivo);
-			respuesta.setCodigo("0");
-			respuesta.setMensaje("éxito");
-		} catch (Exception e) {
-			 logger.error("error al ingresar Dispositivo: " + e.getMessage());
+		if(dispositivoEnBase != null) {
+			dispositivoDto.setDispositivo(dispositivoEnBase);
+			logger.warn("El dispositivo ya existe");
+		}else {
+			dispositivoDto.setDispositivo(dao.save(dispositivo));
 		}
-		return respuesta;
+		return dispositivoDto;
+	}
+
+	public DispositivoDto llenarDispositivo() {
+		DispositivoDto dispositivoDto = new DispositivoDto(new Dispositivo(), dao.findAll());
+		return dispositivoDto;
 	}
 
 }

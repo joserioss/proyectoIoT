@@ -34,12 +34,10 @@ public class DispositivoController {
 	
 	@PostMapping("/agregar")
 	public String agregarDispositivo(@ModelAttribute Dispositivo dispositivo) {
-		DispositivoDto respuestaServicio = servicio.ingresarDispositivo(dispositivo);
-		if(respuestaServicio.getCodigo().equals("0")) {
-			return "/";
-		}else {			
+		DispositivoDto respuestaServicio = servicio.registrarDispositivo(dispositivo);
+			
 			return "dispositivos/index";
-		}
+
 	}
 	
 }

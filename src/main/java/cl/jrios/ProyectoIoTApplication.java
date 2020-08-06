@@ -41,7 +41,7 @@ class AppStartupRunner implements ApplicationRunner {
 
 //************ USUARIO INICIAL ****************
 		Usuario usuario = new Usuario();
-		usuario.setNombre("administrador");
+		usuario.setNombre("Usuario administrador");
 		usuario.setCorreo("admin@mail.cl");
 		usuario.setContrasenia("1234");
 		usuario.setRol(Rol.ROLE_ADMIN);
@@ -49,17 +49,19 @@ class AppStartupRunner implements ApplicationRunner {
 		
 //************ DISPOSITIVO INICIAL ****************
 		Dispositivo dispositivo = new Dispositivo();
-		dispositivo.setNombre("administrador");
+		dispositivo.setNombre("Dispositivo de prueba");
 		dispositivo.setMac("60:01:94:61:B1:FD");
 		dispositivo.setUbicacion("Puente Alto, villa cielo andino");
 		dispositivo.setPrivacidad(PrivacidadDispositivo.ROLE_PUBLICO);
+		servicioDispositivo.registrarDispositivo(dispositivo);
 		
 //************ SENSOR INICIAL ****************
 		Sensor sensor = new Sensor();
-		sensor.setNombre("administrador");
+		sensor.setNombre("MPU6050");
 		sensor.setTipo(TipoSensor.ROLE_MOVIMIENTO);
 		sensor.setDescripcion("Sensor para detectar movimiento en la tierra, cuando una persona esta realizando perforaciones");
 		sensor.setDispositivo(dispositivo);
+		servicioSensor.registrarSensor(sensor);
 
 
 	}

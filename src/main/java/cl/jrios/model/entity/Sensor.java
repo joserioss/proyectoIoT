@@ -15,7 +15,6 @@ import lombok.ToString;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @Data
 @Entity
 public class Sensor {
@@ -30,5 +29,8 @@ public class Sensor {
 	@JoinColumn(name = "dispositivo_id")
 	private Dispositivo dispositivo;
 	
-	
+	@Override
+	public String toString() {
+		return nombre;
+	}
 }

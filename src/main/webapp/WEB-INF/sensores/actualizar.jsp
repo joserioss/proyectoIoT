@@ -56,7 +56,7 @@
 											<h1 class="h4 text-gray-900 mb-4">¡Registra un nuevo
 												sensor y vinculalo a un dispositivo!</h1>
 										</div>
-										<form action="<c:url value='/sensores' />" method="post">
+										<form action="<c:url value='/sensores/registrar' />" method="post">
 											<div class="form-group">
 												<input type="text" class="form-control form-control-user"
 													id="nombre" name="nombre" placeholder="Nombre del sensor">
@@ -109,7 +109,7 @@
 										<form action="/sensores/actualizar"
 											method="post">
 											<div class="modal-header">
-												<h5 class="modal-title">Actualizar Sensor: <c:out value="${sensor.getId() }"></c:out></h5>
+												<h5 class="modal-title">Actualizar Sensor:</h5>
 												<button type="button" class="close" data-dismiss="modal"
 													aria-label="Close">
 													<span aria-hidden="true">&times;</span>

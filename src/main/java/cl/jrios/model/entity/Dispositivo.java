@@ -43,6 +43,10 @@ public class Dispositivo {
 	@Setter @Getter
 	private Set<Usuario> usuarios = new HashSet<>();
 	
+	@Override
+	public String toString() {
+		return mac;
+	}
 
 	// Helpers Many to many
 	public Dispositivo asignarUsuario(Usuario usuario){
