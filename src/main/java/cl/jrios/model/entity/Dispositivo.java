@@ -42,7 +42,7 @@ public class Dispositivo {
 
 	@ManyToMany
 	@Setter @Getter
-	private Set<Usuario> usuarios = new HashSet<>();
+	private List<Usuario> usuarios = new ArrayList<>();
 	
 	@Override
 	public String toString() {

@@ -102,23 +102,24 @@
 										</tfoot>
 										<tbody>
 											<c:forEach var="sensor" items="${sensores}">
-												<tr>
-													<td>${sensor.getDispositivo().getNombre()}</td>
-													<td>${sensor.nombre}</td>
-													<td>${sensor.dispositivo}</td>
-													<td>${sensor.getDispositivo().getUbicacion()}</td>
-													<td><a href="<c:url value = "/user"/>"
-														class="btn btn-success btn-circle btn-sm"> <i
-															class="fas fa-arrow-right"></i>
-													</a></td>
-													<td><a href="#"
-														class="btn btn-danger btn-circle btn-sm"> <i
-															class="fas fa-trash"></i>
-													</a></td>
-												</tr>
+												<c:if test="${sensor.getDispositivo() != null }">
+
+													<tr>
+														<td>${sensor.getDispositivo().getNombre()}</td>
+														<td>${sensor.nombre}</td>
+														<td>${sensor.dispositivo}</td>
+														<td>${sensor.getDispositivo().getUbicacion()}</td>
+														<td><a href="<c:url value = "/user"/>"
+															class="btn btn-success btn-circle btn-sm"> <i
+																class="fas fa-arrow-right"></i>
+														</a></td>
+														<td><a href="#"
+															class="btn btn-danger btn-circle btn-sm"> <i
+																class="fas fa-trash"></i>
+														</a></td>
+													</tr>
+												</c:if>
 											</c:forEach>
-
-
 
 										</tbody>
 									</table>
@@ -150,9 +151,9 @@
 										<div class="col-sm-10">
 											<label for="dispositivo" class="col-sm-5 col-form-label">Dispositivo</label>
 											<select name="mac" id="dispositivo" class="col-sm-5">
-												<option value="">Seleccione dispositivo...</option>
+												<option value="" selected>Seleccione dispositivo...</option>
 												<c:forEach var="dispo" items="${dispositivos}">
-													<option value="${dispo.getMac()}" selected>${dispo.getMac()}</option>
+													<option value="${dispo.getMac()}">${dispo.getMac()}</option>
 												</c:forEach>
 											</select>
 
@@ -161,9 +162,9 @@
 										<div class="col-sm-10">
 											<label for="sensor" class="col-sm-5 col-form-label">Sensor</label>
 											<select name="nombre" id="sensor" class="col-sm-5">
-												<option value="">Seleccione sensor...</option>
+												<option value="" selected>Seleccione sensor...</option>
 												<c:forEach var="sensor" items="${sensores}">
-													<option value="${sensor.getNombre()}" selected>${sensor.getNombre()}</option>
+													<option value="${sensor.getNombre()}">${sensor.getNombre()}</option>
 												</c:forEach>
 											</select>
 										</div>

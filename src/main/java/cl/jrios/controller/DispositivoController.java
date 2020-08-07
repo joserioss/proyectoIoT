@@ -1,5 +1,6 @@
 package cl.jrios.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -32,7 +33,7 @@ public class DispositivoController {
 
 	@Autowired
 	private UsuarioService servicioUsuario;
-	
+
 	@Autowired
 	private DispositivoService servicioDispositivo;
 
@@ -48,16 +49,27 @@ public class DispositivoController {
 		String nombre = servicioUsuario.buscarUsuarioPorCorreo(name);
 		UsuarioDto usuarioDto = servicioUsuario.buscarUsuarioPorNombre(nombre);
 		Usuario usuario = usuarioDto.getUsuario();
-		
-		List<Dispositivo> listaDispositivos = usuario.getDispositivos();
-		logger.warn("***************** LUsuario: "+ usuario);
-		logger.warn("***************** Lista de dispositivos: "+ listaDispositivos);
+
 		List<Dispositivo> dispositivos = servicioDispositivo.llenarDispositivos().getDispositivos();
+
+//************************************PASAR A SERVICIO MAS ADELANTE*******************************
+		List<Dispositivo> dispositivosPermitidos = new ArrayList<>();
+
+		String nombreSesion = "[" + name + "]";
+		for (Dispositivo disp : dispositivos) {
+			String usuarioEnTexto = disp.getUsuarios().toString();
+			if (nombreSesion.equals(usuarioEnTexto)) {
+				dispositivosPermitidos.add(disp);
+			}
+		}
+
+		logger.warn("*************** dispositico del usuario : " + dispositivosPermitidos);
+//************************************ FIN FUTURO SERVICIO *******************************		
 		List<Sensor> sensores = servicioSensor.llenarSensores().getSensores();
 
 		modelo.addAttribute("sensores", sensores);
-		modelo.addAttribute("dispositivos", dispositivos);
-		modelo.put("dispositivos", dispositivos);
+		modelo.addAttribute("dispositivos", dispositivosPermitidos);
+		modelo.put("dispositivos", dispositivosPermitidos);
 		return "dispositivos/index";
 	}
 
@@ -66,7 +78,7 @@ public class DispositivoController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String name = auth.getName();
 		modelo.addAttribute("username", name);
-		
+
 		Dispositivo dispositivo = servicioDispositivo.obtenerPorId(id).getDispositivo();
 		List<Dispositivo> dispositivos = servicioDispositivo.llenarDispositivos().getDispositivos();
 
@@ -84,17 +96,15 @@ public class DispositivoController {
 		String nombre = servicioUsuario.buscarUsuarioPorCorreo(name);
 		UsuarioDto usuarioDto = servicioUsuario.buscarUsuarioPorNombre(nombre);
 		Usuario usuario = usuarioDto.getUsuario();
-		
+
 		logger.info("Nuevo dispositivo registrado");
 		DispositivoDto dispositivoDto = servicioDispositivo.registrarDispositivo(dispositivo);
-		
-		logger.warn("***************** USUARIO: "+ usuario);
+
+		logger.warn("***************** USUARIO: " + usuario);
 		usuario.asignarDispositivo(dispositivo);
 		servicioUsuario.actualizarUsuario(usuarioDto);
 		dispositivo.asignarUsuario(usuario);
 		servicioDispositivo.actualizarDispositivo(dispositivoDto);
-		
-		
 
 		if (dispositivoDto.getDispositivo() == null) {
 			logger.warn("Registro vacio");
@@ -118,7 +128,7 @@ public class DispositivoController {
 		dto.getDispositivo().setMac(dispositivo.getMac());
 		dto.getDispositivo().setUbicacion(dispositivo.getUbicacion());
 		dto.getDispositivo().setPrivacidad(dispositivo.getPrivacidad());
-		
+
 		servicioDispositivo.actualizarDispositivo(dto);
 
 		List<Dispositivo> dispositivos = servicioDispositivo.llenarDispositivos().getDispositivos();

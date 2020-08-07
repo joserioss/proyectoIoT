@@ -1,5 +1,6 @@
 package cl.jrios.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -41,7 +42,6 @@ public class HomeController {
 
 	@GetMapping
 	public String home(ModelMap modelo) {
-		// capturo el nombre de usuario
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String name = auth.getName();
 		modelo.addAttribute("username", name);
@@ -51,42 +51,81 @@ public class HomeController {
 		Usuario usuario = usuarioDto.getUsuario();
 
 		List<Dispositivo> dispositivos = servicioDispositivo.llenarDispositivos().getDispositivos();
+
+//************************************PASAR A SERVICIO MAS ADELANTE*******************************
+
+// Servicio de devuelve una lista con los dispositivos pertenecientes solo al usuario de la sesion
+
+		List<Dispositivo> dispositivosPermitidos = new ArrayList<>();
+
+		String nombreSesion = "[" + name + "]";
+		for (Dispositivo disp : dispositivos) {
+			String usuarioEnTexto = disp.getUsuarios().toString();
+			if (nombreSesion.equals(usuarioEnTexto)) {
+				dispositivosPermitidos.add(disp);
+			}
+		}
+
+		logger.warn("*************** dispositico del usuario : " + dispositivosPermitidos);
+
+//************************************ FIN FUTURO SERVICIO *******************************		
 		List<Sensor> sensores = servicioSensor.llenarSensores().getSensores();
 
+//		List<Sensor> sensoresPermitidos = new ArrayList<>();
+//		for (Sensor sen : sensores) {
+//			for (Dispositivo disp : dispositivosPermitidos) {
+//				if ((sen.getDispositivo().getMac()).equals(disp.getMac())) {
+//					sensoresPermitidos.add(sen);
+//				}
+//			}
+//		}
+//		logger.warn("*************** Sensores permitidos : " + sensoresPermitidos);
 		modelo.addAttribute("sensores", sensores);
-		modelo.addAttribute("dispositivos", dispositivos);
+		modelo.addAttribute("dispositivos", dispositivosPermitidos);
 
 		modelo.put("sensores", sensores);
 		return "home/index";
 	}
 
 	@PostMapping
-	public String vincularDispositivoSensor(ModelMap modelo,
-			@RequestParam(name = "mac", required = true) String mac,
+	public String vincularDispositivoSensor(ModelMap modelo, @RequestParam(name = "mac", required = true) String mac,
 			@RequestParam(name = "nombre", required = true) String nombre) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String name = auth.getName();
+		modelo.addAttribute("username", name);
 		
-			SensorDto sensorDto = servicioSensor.obtenerPorNombre(nombre);
-			DispositivoDto dispositivoDto = servicioDispositivo.obtenerPorMac(mac);
-			
-			Sensor sensor = sensorDto.getSensor();	
-			Dispositivo dispositivo = dispositivoDto.getDispositivo();
-			
-			sensor.setDispositivo(dispositivo);
-			logger.warn("***************** sensor: "+ sensorDto.getSensor().getId());
-			logger.warn("***************** sensor: "+ sensorDto.getSensor().getNombre());
-			logger.warn("***************** sensor: "+ sensorDto.getSensor().getDispositivo());
-			
-			
-			servicioSensor.actualizarSensor(sensorDto);
-//			dispositivo.asignarSensor(sensor);
-			
-			List<Dispositivo> dispositivos = servicioDispositivo.llenarDispositivos().getDispositivos();
-			List<Sensor> sensores = servicioSensor.llenarSensores().getSensores();
-			modelo.addAttribute("sensores", sensores);
-			modelo.addAttribute("dispositivos", dispositivos);
+		SensorDto sensorDto = servicioSensor.obtenerPorNombre(nombre);
+		DispositivoDto dispositivoDto = servicioDispositivo.obtenerPorMac(mac);
 
-			modelo.put("sensores", sensores);
-			return "home/index";
+		Sensor sensor = sensorDto.getSensor();
+		Dispositivo dispositivo = dispositivoDto.getDispositivo();
+
+		sensor.setDispositivo(dispositivo);
+		servicioSensor.actualizarSensor(sensorDto);
+//			dispositivo.asignarSensor(sensor);
+
+		List<Dispositivo> dispositivos = servicioDispositivo.llenarDispositivos().getDispositivos();
+		//************************************PASAR A SERVICIO MAS ADELANTE*******************************
+				List<Dispositivo> dispositivosPermitidos = new ArrayList<>();
+
+				String nombreSesion = "[" + name + "]";
+				for (Dispositivo disp : dispositivos) {
+					String usuarioEnTexto = disp.getUsuarios().toString();
+					if (nombreSesion.equals(usuarioEnTexto)) {
+						dispositivosPermitidos.add(disp);
+					}
+				}
+
+				logger.warn("*************** dispositico del usuario : " + dispositivosPermitidos);
+
+		//************************************ FIN FUTURO SERVICIO *******************************	
+		
+		List<Sensor> sensores = servicioSensor.llenarSensores().getSensores();
+		modelo.addAttribute("sensores", sensores);
+		modelo.addAttribute("dispositivos", dispositivosPermitidos);
+
+		modelo.put("sensores", sensores);
+		return "home/index";
 	}
 
 }
