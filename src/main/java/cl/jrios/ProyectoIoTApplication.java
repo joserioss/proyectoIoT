@@ -1,5 +1,7 @@
 package cl.jrios;
 
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -7,6 +9,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 
+import cl.jrios.model.dto.DispositivoDto;
+import cl.jrios.model.dto.SensorDto;
+import cl.jrios.model.dto.UsuarioDto;
 import cl.jrios.model.entity.Dispositivo;
 import cl.jrios.model.entity.PrivacidadDispositivo;
 import cl.jrios.model.entity.Rol;
@@ -38,14 +43,21 @@ class AppStartupRunner implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-
+		
 //************ USUARIO INICIAL ****************
 		Usuario usuario = new Usuario();
 		usuario.setNombre("Usuario administrador");
 		usuario.setCorreo("admin@mail.cl");
 		usuario.setContrasenia("1234");
 		usuario.setRol(Rol.ROLE_ADMIN);
-		servicioUsuario.registrarUsuario(usuario);
+		UsuarioDto usuarioDto = servicioUsuario.registrarUsuario(usuario);
+
+		Usuario usuario2 = new Usuario();
+		usuario2.setNombre("Usuario usuario");
+		usuario2.setCorreo("user@mail.cl");
+		usuario2.setContrasenia("1234");
+		usuario2.setRol(Rol.ROLE_USER);
+		UsuarioDto usuarioDto2 = servicioUsuario.registrarUsuario(usuario2);
 		
 //************ DISPOSITIVO INICIAL ****************
 		Dispositivo dispositivo = new Dispositivo();
@@ -53,7 +65,8 @@ class AppStartupRunner implements ApplicationRunner {
 		dispositivo.setMac("60:01:94:61:B1:FD");
 		dispositivo.setUbicacion("Puente Alto, villa cielo andino");
 		dispositivo.setPrivacidad(PrivacidadDispositivo.ROLE_PUBLICO);
-		servicioDispositivo.registrarDispositivo(dispositivo);
+		DispositivoDto dispositivoDto  = servicioDispositivo.registrarDispositivo(dispositivo);
+				
 		
 //************ DISPOSITIVO INICIAL ****************
 		Dispositivo dispositivo2 = new Dispositivo();
@@ -61,7 +74,36 @@ class AppStartupRunner implements ApplicationRunner {
 		dispositivo2.setMac("2C:3A:E8:42:0E:53");
 		dispositivo2.setUbicacion("Puente Alto, casas viejas");
 		dispositivo2.setPrivacidad(PrivacidadDispositivo.ROLE_PUBLICO);
-		servicioDispositivo.registrarDispositivo(dispositivo2);
+		DispositivoDto dispositivoDto2  = servicioDispositivo.registrarDispositivo(dispositivo2);
+	
+//********* VINCULACION DISPOSITIVO-USUARIO ************
+
+//		ESCRITURA PARA MISMO DISPOSITIVO Y MUCHOS USUARIOS
+//		usuario.asignarDispositivo(dispositivo);
+//		servicioUsuario.actualizarUsuario(usuarioDto);	
+//		usuario2.asignarDispositivo(dispositivo);
+//		servicioUsuario.actualizarUsuario(usuarioDto2);
+//		dispositivo.asignarUsuario(usuario);
+//		servicioDispositivo.actualizarDispositivo(dispositivoDto);
+//		dispositivo.asignarUsuario(usuario2);
+//		servicioDispositivo.actualizarDispositivo(dispositivoDto);
+		
+//		ESCRITURA PARA MISMO USUARIOS Y MUCHOS DISPOSITIVOS		
+		usuario.asignarDispositivo(dispositivo);
+		servicioUsuario.actualizarUsuario(usuarioDto);	
+		dispositivo.asignarUsuario(usuario);
+		servicioDispositivo.actualizarDispositivo(dispositivoDto);
+
+		usuario.asignarDispositivo(dispositivo2);
+		servicioUsuario.actualizarUsuario(usuarioDto);	
+		dispositivo2.asignarUsuario(usuario);
+		servicioDispositivo.actualizarDispositivo(dispositivoDto2);
+
+//		usuario2.asignarDispositivo(dispositivo2);
+//		servicioUsuario.actualizarUsuario(usuarioDto2);
+//		dispositivo2.asignarUsuario(usuario2);
+//		servicioDispositivo.actualizarDispositivo(dispositivoDto2);
+		
 		
 //************ SENSOR INICIAL ****************
 		Sensor sensor = new Sensor();

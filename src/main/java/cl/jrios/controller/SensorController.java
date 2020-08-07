@@ -43,24 +43,24 @@ public class SensorController {
 	
 	@GetMapping("/actualizar")
 	public String actualizar(ModelMap modelo, @RequestParam(name = "id") Integer id) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String name = auth.getName();
+		modelo.addAttribute("username", name);
 		Sensor sensor = servicioSensor.obtenerPorId(id).getSensor();
+		
 		List<Sensor> sensores = servicioSensor.llenarSensores().getSensores();
 
 		modelo.addAttribute("sensor", sensor);
 		modelo.addAttribute("sensores", sensores);
-
-		return "sensores/index";
+		
+		return "sensores/sensorActualizar";
 	}
 
 	@PostMapping
 	public String registroSensor(@ModelAttribute Sensor sensor, ModelMap modelo) {
 		logger.info("Nuevo sensor registrado");
 		SensorDto sensorDto = servicioSensor.registrarSensor(sensor);
-		if (sensorDto.getSensor() == null) {
-			logger.warn("Registro vacio");
-			return "sensores/index";
-		}
-
+		
 		List<Sensor> sensores = servicioSensor.llenarSensores().getSensores();
 
 		modelo.addAttribute("sensor", sensor);
@@ -73,17 +73,16 @@ public class SensorController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String name = auth.getName();
 		modelo.addAttribute("username", name);
-		
-		logger.info("Sensor a actualizar:" + sensor.getNombre());
 
-		SensorDto dto = new SensorDto();
-		dto.setSensor(sensor);
+		SensorDto dtoEnBase = servicioSensor.obtenerPorNombre(sensor.getNombre());
+		dtoEnBase.getSensor().setNombre(sensor.getNombre());
+		dtoEnBase.getSensor().setDescripcion(sensor.getDescripcion());
+		dtoEnBase.getSensor().setTipo(sensor.getTipo());
 		
-		servicioSensor.actualizarSensor(dto);
-
+		servicioSensor.actualizarSensor(dtoEnBase);
 		List<Sensor> sensores = servicioSensor.llenarSensores().getSensores();
 
-		modelo.addAttribute("sensor", sensor);
+		modelo.addAttribute("sensor", dtoEnBase.getSensor());
 		modelo.addAttribute("sensores", sensores);
 		return "redirect:/sensores";
 	}

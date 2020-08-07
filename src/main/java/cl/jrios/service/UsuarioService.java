@@ -71,8 +71,9 @@ public class UsuarioService {
 		return dto;
 	}
 	
-	public Usuario actualizarUsuario() {
-		return new Usuario();
+	public UsuarioDto actualizarUsuario(UsuarioDto usuarioDto) {
+		usuarioDto.setUsuario(dao.save(usuarioDto.getUsuario()));
+		return usuarioDto;
 	} 
 
 	public String buscarUsuarioPorCorreo(String correo) {
@@ -80,6 +81,12 @@ public class UsuarioService {
 		usuarioDto = dao.findByCorreo(correo);
 		String nombre = usuarioDto.get().getNombre();
 		return nombre;
+	}
+
+	public UsuarioDto buscarUsuarioPorNombre(String nombre) {
+		UsuarioDto aux = new UsuarioDto(new Usuario(), dao.findAll());
+		aux.setUsuario(dao.findByNombre(nombre).orElse(null));
+		return aux;
 	}
 
 	public UsuarioDto obtenerPorId(Integer id) {

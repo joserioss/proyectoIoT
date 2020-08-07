@@ -7,7 +7,7 @@
 <html lang="es">
 
 <head>
-<title>Registro Sensor</title>
+<title>Actualizar Sensor</title>
 <jsp:include page="../includes/head.jsp"></jsp:include>
 </head>
 
@@ -53,38 +53,39 @@
 								<div class="col-lg-12">
 									<div class="p-5">
 										<div class="text-center">
-											<h1 class="h4 text-gray-900 mb-4">¡Registra un nuevo
-												sensor y vinculalo a un dispositivo!</h1>
+											<h1 class="h4 text-gray-900 mb-4">¿Seguro que deseas
+												actualizar tu sensor?</h1>
 										</div>
-										<form action="<c:url value='/sensores/registrar' />" method="post">
+										<form action="<c:url value='/sensores/actualizar' />"
+											method="post">
 											<div class="form-group">
-												<input type="text" class="form-control form-control-user"
-													id="nombre" name="nombre" placeholder="Nombre del sensor">
+												<input type="text" class="form-control" id="nombre"
+													name="nombre" placeholder="Nombre del sensor"
+													value="${sensor.getNombre() }">
 											</div>
-											<!-- 											<div class="form-group"> -->
-											<!-- 												<select class="form-control form-control-user" -->
-											<!-- 													id="dispositivo" name="macDispositivo"> -->
-											<%-- 													<c:forEach var="dispositivo" items="${dispositivos}"> --%>
-											<%-- 														<option value="${dispositivo}">${dispositivo}</option> --%>
-											<%-- 													</c:forEach> --%>
-											<!-- 												</select> -->
-											<!-- 											</div> -->
+
 											<div class="form-group">
 												<input type="text" class="form-control form-control-user"
 													id="descripcion" name="descripcion"
-													placeholder="Descripcion del sensor">
+													placeholder="Descripcion del sensor"
+													value="${sensor.getDescripcion() }">
 											</div>
 											<div class="form-group">
 												<select class="form-control form-control-user" id="tipo"
 													name="tipo">
+
 													<c:forEach var="tipo" items="${TipoSensor.values()}">
-														<option value="${tipo}">${tipo}</option>
+														<c:if test="${tipo == sensor.getTipo()}">
+															<option value="${tipo}" selected>${tipo}</option>
+														</c:if>
+														<c:if test="${tipo != sensor.getTipo()}">
+															<option value="${tipo}">${tipo}</option>
+														</c:if>
 													</c:forEach>
 												</select>
 											</div>
 											<button type="submit"
-												class="btn btn-primary btn-user btn-block">Registrar
-												sensor</button>
+												class="btn btn-primary btn-user btn-block">Actualizar</button>
 
 											<hr>
 										</form>
@@ -98,61 +99,9 @@
 					<!-- Inicio mantenedor -->
 					<div class="card o-hidden border-0 shadow-lg my-5">
 						<div class="card-body p-0">
-							<div class="modal fade" id="modalActualizar" tabindex="-1"
-								role="dialog" aria-labelledby="exampleModalLabel"
-								aria-hidden="true">
-								<div class="modal-dialog" role="document">
 
-									<!-- Modal actualizar -->
 
-									<div class="modal-content">
-										<form action="/sensores/actualizar"
-											method="post">
-											<div class="modal-header">
-												<h5 class="modal-title">Actualizar Sensor:</h5>
-												<button type="button" class="close" data-dismiss="modal"
-													aria-label="Close">
-													<span aria-hidden="true">&times;</span>
-												</button>
-											</div>
 
-											<div class="modal-body">
-
-												<div class="form-group">
-													<input type="text" class="form-control" id="nombre"
-														name="nombre" placeholder="Nombre del sensor"
-														value="${sensor.getNombre() }">
-												</div>
-
-												<div class="form-group">
-													<input type="text" class="form-control form-control-user"
-														id="descripcion" name="descripcion"
-														placeholder="Descripcion del sensor"
-														value="${sensor.getDescripcion() }">
-												</div>
-												<div class="form-group">
-													<select class="form-control form-control-user" id="tipo"
-														name="tipo">
-														<c:forEach var="tipo" items="${TipoSensor.values()}">
-															<option value="${tipo}">${tipo}</option>
-														</c:forEach>
-													</select>
-												</div>
-											</div>
-											<div class="modal-footer">
-												<button type="submit" class="btn btn-primary">Guardar
-													cambios sensor</button>
-
-												<button type="button" class="btn btn-secondary"
-													data-dismiss="modal">Close</button>
-											</div>
-										</form>
-									</div>
-								</div>
-
-							</div>
-
-							<!-- Modal actualizar # -->
 
 							<div class="row">
 								<div class="col-lg-12">
@@ -198,9 +147,8 @@
 																		<td>${sensor.tipo}</td>
 																		<td><a
 																			href='<c:out value="/sensores/actualizar?id=${sensor.getId()}" />'
-																			class="btn btn-success btn-circle btn-sm"
-																			data-toggle="modal" data-target="#modalActualizar">
-																				<i class="fas fa-arrow-right"></i>
+																			class="btn btn-success btn-circle btn-sm"> <i
+																				class="fas fa-arrow-right"></i>
 																		</a></td>
 																		<td><a
 																			href='<c:out value="/sensores/eliminar?id=${sensor.getId()}" />'
@@ -221,37 +169,36 @@
 									</div>
 								</div>
 							</div>
+
+							<!-- Fin mantenedor -->
 						</div>
+						<!-- End of Main Content -->
+						<!-- Footer -->
+						<jsp:include page="../includes/footers.jsp"></jsp:include>
+						<!-- End of Footer -->
+
 					</div>
-					<!-- Fin mantenedor -->
+
+					<!-- End of Page Wrapper -->
+
+					<!-- Scroll to Top Button-->
+					<a class="scroll-to-top rounded" href="#page-top"> <i
+						class="fas fa-angle-up"></i>
+					</a>
+
+					<!-- Modal Logout -->
+					<jsp:include page="../includes/modalLogout.jsp"></jsp:include>
+					<!-- Modal Logout -->
 				</div>
-				<!-- End of Main Content -->
-				<!-- Footer -->
-				<jsp:include page="../includes/footers.jsp"></jsp:include>
-				<!-- End of Footer -->
 
 			</div>
 
-			<!-- End of Page Wrapper -->
-
-			<!-- Scroll to Top Button-->
-			<a class="scroll-to-top rounded" href="#page-top"> <i
-				class="fas fa-angle-up"></i>
-			</a>
-
-			<!-- Modal Logout -->
-			<jsp:include page="../includes/modalLogout.jsp"></jsp:include>
-			<!-- Modal Logout -->
-		</div>
-
-	</div>
-
-	<!-- footer scripts -->
-	<jsp:include page="../includes/footerscripts.jsp"></jsp:include>
-	<!-- footer scripts -->
-	<!-- footer data Table -->
-	<jsp:include page="../includes/footersDataTable.jsp"></jsp:include>
-	<!-- footer data Table -->
+			<!-- footer scripts -->
+			<jsp:include page="../includes/footerscripts.jsp"></jsp:include>
+			<!-- footer scripts -->
+			<!-- footer data Table -->
+			<jsp:include page="../includes/footersDataTable.jsp"></jsp:include>
+			<!-- footer data Table -->
 </body>
 
 </html>

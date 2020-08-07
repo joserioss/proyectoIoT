@@ -1,6 +1,7 @@
 package cl.jrios.controller;
 
 import java.util.List;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import cl.jrios.model.dto.DispositivoDto;
 import cl.jrios.model.dto.SensorDto;
+import cl.jrios.model.dto.UsuarioDto;
 import cl.jrios.model.entity.Dispositivo;
 import cl.jrios.model.entity.Sensor;
+import cl.jrios.model.entity.Usuario;
 import cl.jrios.service.DispositivoService;
 import cl.jrios.service.SensorService;
 import cl.jrios.service.UsuarioService;
@@ -42,6 +45,10 @@ public class HomeController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String name = auth.getName();
 		modelo.addAttribute("username", name);
+
+		String nombre = servicioUsuario.buscarUsuarioPorCorreo(name);
+		UsuarioDto usuarioDto = servicioUsuario.buscarUsuarioPorNombre(nombre);
+		Usuario usuario = usuarioDto.getUsuario();
 
 		List<Dispositivo> dispositivos = servicioDispositivo.llenarDispositivos().getDispositivos();
 		List<Sensor> sensores = servicioSensor.llenarSensores().getSensores();
@@ -72,7 +79,6 @@ public class HomeController {
 			
 			servicioSensor.actualizarSensor(sensorDto);
 //			dispositivo.asignarSensor(sensor);
-			
 			
 			List<Dispositivo> dispositivos = servicioDispositivo.llenarDispositivos().getDispositivos();
 			List<Sensor> sensores = servicioSensor.llenarSensores().getSensores();

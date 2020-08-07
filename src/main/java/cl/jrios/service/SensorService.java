@@ -57,7 +57,8 @@ public class SensorService {
 	}
 	
 	public SensorDto obtenerPorNombre(String nombre) {
-		SensorDto sensorDto = new SensorDto(dao.findByNombre(nombre).get(), dao.findAll());
+		SensorDto sensorDto = new SensorDto(new Sensor(), dao.findAll());
+		sensorDto.setSensor(dao.findByNombre(nombre).orElse(null));
 		return sensorDto;
 	}
 	

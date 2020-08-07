@@ -1,7 +1,7 @@
 package cl.jrios.model.entity;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -17,7 +17,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -36,6 +35,10 @@ public class Usuario {
     @Setter @Getter 
     private Rol rol;
 
+	@Override
+	public String toString() {
+		return correo;
+	}
     
     @Setter @Getter
     @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
@@ -43,7 +46,7 @@ public class Usuario {
 		name = "usuario_dispositivo", 
 		joinColumns = @JoinColumn(name = "usuario_id"), 
 		inverseJoinColumns = @JoinColumn(name = "dispositivo_id"))
-	private Set<Dispositivo> dispositivos = new HashSet<>();
+	private List<Dispositivo> dispositivos = new ArrayList();
 
     	// helpers
 	public Usuario asignarDispositivo(Dispositivo dispostivo){
