@@ -25,6 +25,7 @@ public class Dispositivo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Setter @Getter
 	private Integer id;
 	@Setter @Getter
 	private String nombre;

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="cl.jrios.model.entity.PrivacidadDispositivo"%>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -56,37 +57,47 @@
 											<h1 class="h4 text-gray-900 mb-4">¡Registra un nuevo
 												dispositivo!</h1>
 										</div>
-										<form class="user">
+										<form action="<c:url value='/dispositivos' />" method="post">
 											<div class="form-group row">
 												<div class="col-sm-6 mb-3 mb-sm-0">
 													<input type="text" class="form-control form-control-user"
-														id="nombreDispositivo"
+														id="nombre" name="nombre"
 														placeholder="Nombre del Dispositivo">
 												</div>
 												<div class="col-sm-6">
 													<input type="text" class="form-control form-control-user"
-														id="macDispositivo" placeholder="MAC">
+														id="mac" name="mac" placeholder="MAC">
 												</div>
 											</div>
 											<div class="form-group">
 
 												<input type="text" class="form-control form-control-user"
-													id="ubicacion" placeholder="Ubicacion del dispositivo">
+													id="ubicacion" name="ubicacion"
+												placeholder="Ubicacion del dispositivo">
 
 											</div>
+
+											<!-- 											<div class="form-group"> -->
+											<!-- 												<select class="form-control form-control-user" id="sensores" -->
+											<!-- 													name="macDispositivo"> -->
+											<%-- 													<c:forEach var="sensor" items="${sensores}"> --%>
+											<%-- 														<option value="${sensor}">${sensor}</option> --%>
+											<%-- 													</c:forEach> --%>
+											<!-- 												</select> -->
+											<!-- 											</div> -->
 
 											<div class="form-group">
-												<div class="custom-control custom-checkbox small">
-													<input type="checkbox" class="custom-control-input"
-														id="customCheck"> <label
-														class="custom-control-label" for="customCheck">Dispositivo
-														publico</label>
-												</div>
+												<select class="form-control form-control-user"
+													id="privacidad" name="privacidad">
+													<c:forEach var="privacidad"
+														items="${PrivacidadDispositivo.values()}">
+														<option value="${privacidad}">${privacidad}</option>
+													</c:forEach>
+												</select>
 											</div>
-
-
-											<a href="usuarios" class="btn btn-primary btn-user btn-block">
-												Registrar dispositivo </a>
+											<button type="submit"
+												class="btn btn-primary btn-user btn-block">Registrar
+												sensor</button>
 											<hr>
 										</form>
 
@@ -100,6 +111,72 @@
 					<!-- Inicio mantenedor -->
 					<div class="card o-hidden border-0 shadow-lg my-5">
 						<div class="card-body p-0">
+
+
+							<!-- Modal actualizar -->
+							<div class="modal fade" id="modalActualizar" tabindex="-1"
+								role="dialog" aria-labelledby="exampleModalLabel"
+								aria-hidden="true">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<form action="/dispositivos/actualizar" method="post">
+											<div class="modal-header">
+												<h5 class="modal-title">
+													Actualizar Dispositivo:
+													<c:out value="${dispositivo.getId() }"></c:out>
+												</h5>
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+
+											<div class="modal-body">
+
+												<div class="form-group">
+													<input type="text" class="form-control" id="nombre"
+														name="nombre" placeholder="Nombre del dispositivo"
+														value="${dispositivo.getNombre() }">
+												</div>
+
+												<div class="form-group">
+													<input type="text" class="form-control form-control-user"
+														id="mac" name="mac" placeholder="Mac del dispositivo"
+														value="${dispositivo.getMac() }">
+												</div>
+
+												<div class="form-group">
+													<input type="text" class="form-control form-control-user"
+														id="ubicacion" name="ubicacion"
+														placeholder="Ubicacion del dispositivo"
+														value="${dispositivo.getUbicacion() }">
+												</div>
+
+												<div class="form-group">
+													<select class="form-control form-control-user"
+														id="privacidad" name="privacidad">
+														<c:forEach var="privacidad"
+															items="${PrivacidadDispositivo.values()}">
+															<option value="${privacidad}">${privacidad}</option>
+														</c:forEach>
+													</select>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="submit" class="btn btn-primary">Guardar
+													cambios sensor</button>
+
+												<button type="button" class="btn btn-secondary"
+													data-dismiss="modal">Close</button>
+											</div>
+										</form>
+									</div>
+								</div>
+
+							</div>
+
+							<!-- Modal actualizar # -->
+
 							<div class="row">
 								<div class="col-lg-12">
 									<div class="p-5">
@@ -138,21 +215,26 @@
 																</tr>
 															</tfoot>
 															<tbody>
-																<tr>
-																	<td>1</td>
-																	<td>ESP8266-3</td>
-																	<td>60:01:94:61:B1:FD</td>
-																	<td>Puente Alto</td>
-																	<td>Público</td>
-																	<td><a href="dashboard"
-																		class="btn btn-success btn-circle btn-sm"> <i
-																			class="fas fa-arrow-right"></i>
-																	</a></td>
-																	<td><a href="#"
-																		class="btn btn-danger btn-circle btn-sm"> <i
-																			class="fas fa-trash"></i>
-																	</a></td>
-																</tr>
+																<c:forEach var="dispositivo" items="${dispositivos}">
+																	<tr>
+																		<td>${dispositivo.id}</td>
+																		<td>${dispositivo.nombre}</td>
+																		<td>${dispositivo.mac}</td>
+																		<td>${dispositivo.ubicacion}</td>
+																		<td>${dispositivo.privacidad}</td>
+																		<td><a
+																			href='<c:out value="/dispositivos/actualizar?id=${dispositivo.getId()}" />'
+																			class="btn btn-success btn-circle btn-sm"
+																			data-toggle="modal" data-target="#modalActualizar">
+																				<i class="fas fa-arrow-right"></i>
+																		</a></td>
+																		<td><a
+																			href='<c:out value="/dispositivos/eliminar?id=${dispositivo.getId()}" />'
+																			class="btn btn-danger btn-circle btn-sm"> <i
+																				class="fas fa-trash"></i>
+																		</a></td>
+																	</tr>
+																</c:forEach>
 															</tbody>
 														</table>
 													</div>

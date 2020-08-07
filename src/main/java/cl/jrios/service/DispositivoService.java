@@ -33,9 +33,36 @@ public class DispositivoService {
 		return dispositivoDto;
 	}
 
-	public DispositivoDto llenarDispositivo() {
+	public DispositivoDto llenarDispositivos() {
 		DispositivoDto dispositivoDto = new DispositivoDto(new Dispositivo(), dao.findAll());
 		return dispositivoDto;
 	}
+	
+	public void eliminarDispositivo(Dispositivo dispositivo) {
+		Dispositivo dispositivoEnBase = dao.findById(dispositivo.getId()).orElse(null);
+		if(dispositivoEnBase != null) {
+			try {
+				dao.delete(dispositivo);
+				logger.info("Dispositivo eliminado : " + dispositivo.getId());
+			} catch (Exception e) {
+				logger.info("Error al intentar eliminar : " + dispositivo.getId());
+			}
+		}
+	}
+	
+	public DispositivoDto actualizarDispositivo(DispositivoDto dispositivoDto) {
+		dispositivoDto.setDispositivo(dao.save(dispositivoDto.getDispositivo()));
+		return dispositivoDto;
+	}
+	
+	public DispositivoDto obtenerPorId(Integer id) {
+		DispositivoDto dispositivoDto = new DispositivoDto();
+		dispositivoDto.setDispositivo(dao.findById(id).orElse(null));
+		return dispositivoDto;
+	}
 
+	public DispositivoDto obtenerPorMac(String mac) {
+		DispositivoDto dispositivoDto = new DispositivoDto(dao.findByMac(mac).get() , dao.findAll());
+		return dispositivoDto;
+	}
 }

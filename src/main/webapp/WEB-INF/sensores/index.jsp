@@ -54,21 +54,14 @@
 									<div class="p-5">
 										<div class="text-center">
 											<h1 class="h4 text-gray-900 mb-4">¡Registra un nuevo
-												sensor y vinculalo a un dispositivo!</h1>
+												sensor!</h1>
 										</div>
 										<form action="<c:url value='/sensores' />" method="post">
 											<div class="form-group">
 												<input type="text" class="form-control form-control-user"
 													id="nombre" name="nombre" placeholder="Nombre del sensor">
 											</div>
-											<!-- 											<div class="form-group"> -->
-											<!-- 												<select class="form-control form-control-user" -->
-											<!-- 													id="dispositivo" name="macDispositivo"> -->
-											<%-- 													<c:forEach var="dispositivo" items="${dispositivos}"> --%>
-											<%-- 														<option value="${dispositivo}">${dispositivo}</option> --%>
-											<%-- 													</c:forEach> --%>
-											<!-- 												</select> -->
-											<!-- 											</div> -->
+
 											<div class="form-group">
 												<input type="text" class="form-control form-control-user"
 													id="descripcion" name="descripcion"
@@ -98,18 +91,19 @@
 					<!-- Inicio mantenedor -->
 					<div class="card o-hidden border-0 shadow-lg my-5">
 						<div class="card-body p-0">
+
+							<!-- Modal actualizar -->
 							<div class="modal fade" id="modalActualizar" tabindex="-1"
 								role="dialog" aria-labelledby="exampleModalLabel"
 								aria-hidden="true">
 								<div class="modal-dialog" role="document">
-
-									<!-- Modal actualizar -->
-
 									<div class="modal-content">
-										<form action="/sensores/actualizar"
-											method="post">
+										<form action="/sensores/actualizar" method="post">
 											<div class="modal-header">
-												<h5 class="modal-title">Actualizar Sensor: <c:out value="${sensor.getId() }"></c:out></h5>
+												<h5 class="modal-title">
+													Actualizar Sensor:
+													<c:out value="${sensor.getId() }"></c:out>
+												</h5>
 												<button type="button" class="close" data-dismiss="modal"
 													aria-label="Close">
 													<span aria-hidden="true">&times;</span>

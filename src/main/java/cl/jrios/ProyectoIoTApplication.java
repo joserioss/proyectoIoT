@@ -49,11 +49,19 @@ class AppStartupRunner implements ApplicationRunner {
 		
 //************ DISPOSITIVO INICIAL ****************
 		Dispositivo dispositivo = new Dispositivo();
-		dispositivo.setNombre("Dispositivo de prueba");
+		dispositivo.setNombre("ESP8266-1");
 		dispositivo.setMac("60:01:94:61:B1:FD");
 		dispositivo.setUbicacion("Puente Alto, villa cielo andino");
 		dispositivo.setPrivacidad(PrivacidadDispositivo.ROLE_PUBLICO);
 		servicioDispositivo.registrarDispositivo(dispositivo);
+		
+//************ DISPOSITIVO INICIAL ****************
+		Dispositivo dispositivo2 = new Dispositivo();
+		dispositivo2.setNombre("ESP8266-2");
+		dispositivo2.setMac("2C:3A:E8:42:0E:53");
+		dispositivo2.setUbicacion("Puente Alto, casas viejas");
+		dispositivo2.setPrivacidad(PrivacidadDispositivo.ROLE_PUBLICO);
+		servicioDispositivo.registrarDispositivo(dispositivo2);
 		
 //************ SENSOR INICIAL ****************
 		Sensor sensor = new Sensor();
@@ -62,6 +70,13 @@ class AppStartupRunner implements ApplicationRunner {
 		sensor.setDescripcion("Sensor para detectar movimiento en la tierra, cuando una persona esta realizando perforaciones");
 		sensor.setDispositivo(dispositivo);
 		servicioSensor.registrarSensor(sensor);
+
+//************ SENSOR INICIAL ****************
+		Sensor sensor2 = new Sensor();
+		sensor2.setNombre("HCSR-04");
+		sensor2.setTipo(TipoSensor.ROLE_DISTANCIA);
+		sensor2.setDescripcion("Sensor para detectar la disitancia de un objeto");
+		servicioSensor.registrarSensor(sensor2);
 
 
 	}

@@ -40,7 +40,8 @@
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="/" data-toggle="modal"
 									data-target="#logoutModal"><i class="fa fa-book fa-fw"></i>Logout</a>
-								<a class="dropdown-item" href="/user"><i class="fas fa-fw fa-tachometer-alt"></i> Dashboard</a>
+								<a class="dropdown-item" href="/user"><i
+									class="fas fa-fw fa-tachometer-alt"></i> Dashboard</a>
 							</div></li>
 						<!-- Menú usuario -->
 					</ul>
@@ -100,34 +101,25 @@
 											</tr>
 										</tfoot>
 										<tbody>
-											<tr>
-												<td>ESP8266-3</td>
-												<td>Movimiento</td>
-												<td>60:01:94:61:B1:FD</td>
-												<td>Puente Alto</td>
-												<td><a href="<c:url value = "/user"/>"
-													class="btn btn-success btn-circle btn-sm"> <i
-														class="fas fa-arrow-right"></i>
-												</a></td>
-												<td><a href="#"
-													class="btn btn-danger btn-circle btn-sm"> <i
-														class="fas fa-trash"></i>
-												</a></td>
-											</tr>
-											<tr>
-												<td>ESP8266-4</td>
-												<td>Movimiento</td>
-												<td>2C:3A:E8:42:0E:53</td>
-												<td>Rancagua</td>
-												<td><a href="<c:url value = "/user"/>"
-													class="btn btn-success btn-circle btn-sm"> <i
-														class="fas fa-arrow-right"></i>
-												</a></td>
-												<td><a href="#"
-													class="btn btn-danger btn-circle btn-sm"> <i
-														class="fas fa-trash"></i>
-												</a></td>
-											</tr>
+											<c:forEach var="sensor" items="${sensores}">
+												<tr>
+													<td>${sensor.getDispositivo().getNombre()}</td>
+													<td>${sensor.nombre}</td>
+													<td>${sensor.dispositivo}</td>
+													<td>${sensor.getDispositivo().getUbicacion()}</td>
+													<td><a href="<c:url value = "/user"/>"
+														class="btn btn-success btn-circle btn-sm"> <i
+															class="fas fa-arrow-right"></i>
+													</a></td>
+													<td><a href="#"
+														class="btn btn-danger btn-circle btn-sm"> <i
+															class="fas fa-trash"></i>
+													</a></td>
+												</tr>
+											</c:forEach>
+
+
+
 										</tbody>
 									</table>
 								</div>
@@ -143,85 +135,54 @@
 
 					<div class="container-fluid">
 						<hr>
-						<!-- DataTables Example -->
+						<!-- inicio Vinculacion -->
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
-								<h6 class="m-0 font-weight-bold text-primary">Sensores
-									disponibles</h6>
+								<h6 class="m-0 font-weight-bold text-primary">Vinculación</h6>
 							</div>
 							<div class="card-body">
-								<div class="table-responsive">
-									<table class="table table-bordered" id="dataTable" width="100%"
-										cellspacing="0">
-										<thead>
-											<tr>
-												<th>Dispositivo</th>
-												<th>Sensor</th>
-												<th>MAC</th>
-												<th>Ubicación</th>
-												<th>Selección</th>
-											</tr>
-										</thead>
-										<tfoot>
-											<tr>
-												<th>Dispositivo</th>
-												<th>Sensor</th>
-												<th>MAC</th>
-												<th>Ubicación</th>
-												<th>Selección</th>
-											</tr>
-										</tfoot>
-										<tbody>
-											<tr>
-												<td>ESP8266-1</td>
-												<td>Ultrasonico</td>
-												<td>2B:3A:E1:42:02:53</td>
-												<td>Puente Alto</td>
-												<td><a href="#" class="btn btn-primary btn-icon-split">
-														<span class="icon text-white-50"> <i
-															class="fas fa-check"></i>
-													</span>
-												</a></td>
-											</tr>
-											<tr>
-												<td>ESP8266-2</td>
-												<td>Velocidad del viento</td>
-												<td>2B:3A:11:42:0B:52</td>
-												<td>Rancagua</td>
-												<td><a href="#" class="btn btn-primary btn-icon-split">
-														<span class="icon text-white-50"> <i
-															class="fas fa-check"></i>
-													</span>
-												</a></td>
-											</tr>
-											<tr>
-												<td>ARDUINO-1</td>
-												<td>Presencia</td>
-												<td>5B:3A:E1:42:02:58</td>
-												<td>Renca</td>
-												<td><a href="#" class="btn btn-primary btn-icon-split">
-														<span class="icon text-white-50"> <i
-															class="fas fa-check"></i>
-													</span>
-												</a></td>
-											</tr>
-											<tr>
-												<td>ARDUINO-2</td>
-												<td>Ultrasonico</td>
-												<td>70:3A:E1:42:02:51</td>
-												<td>Peñalolen</td>
-												<td><a href="#" class="btn btn-primary btn-icon-split">
-														<span class="icon text-white-50"> <i
-															class="fas fa-check"></i>
-													</span>
-												</a></td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
+
+								<!-- Formulario vinculacion -->
+								<form action="home" method="post">
+
+									<div class="form-group">
+
+										<div class="col-sm-10">
+											<label for="dispositivo" class="col-sm-5 col-form-label">Dispositivo</label>
+											<select name="mac" id="dispositivo" class="col-sm-5">
+												<option value="">Seleccione dispositivo...</option>
+												<c:forEach var="dispo" items="${dispositivos}">
+													<option value="${dispo.getMac()}" selected>${dispo.getMac()}</option>
+												</c:forEach>
+											</select>
+
+										</div>
+
+										<div class="col-sm-10">
+											<label for="sensor" class="col-sm-5 col-form-label">Sensor</label>
+											<select name="id" id="sensor" class="col-sm-5">
+												<option value="">Seleccione sensor...</option>
+												<c:forEach var="sensor" items="${sensores}">
+													<option value="${sensor.getId()}" selected>${sensor.getNombre()}</option>
+												</c:forEach>
+											</select>
+										</div>
+									</div>
+									<div class="form-group"></div>
+
+									<div class="form-group">
+
+										<div class="col-sm-12">
+											<button type="submit" class="btn btn-primary">Agregar</button>
+										</div>
+									</div>
+
+
+								</form>
+
 							</div>
 						</div>
-						<!--  Fin dataTables -->
+						<!--  Fin vinculacion -->
 						<hr>
 					</div>
 					<!-- End of Main Content -->
