@@ -160,10 +160,10 @@
 
 										<div class="col-sm-10">
 											<label for="sensor" class="col-sm-5 col-form-label">Sensor</label>
-											<select name="id" id="sensor" class="col-sm-5">
+											<select name="nombre" id="sensor" class="col-sm-5">
 												<option value="">Seleccione sensor...</option>
 												<c:forEach var="sensor" items="${sensores}">
-													<option value="${sensor.getId()}" selected>${sensor.getNombre()}</option>
+													<option value="${sensor.getNombre()}" selected>${sensor.getNombre()}</option>
 												</c:forEach>
 											</select>
 										</div>

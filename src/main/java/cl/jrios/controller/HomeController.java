@@ -56,15 +56,22 @@ public class HomeController {
 	@PostMapping
 	public String vincularDispositivoSensor(ModelMap modelo,
 			@RequestParam(name = "mac", required = true) String mac,
-			@RequestParam(name = "id", required = true) Integer id) {
+			@RequestParam(name = "nombre", required = true) String nombre) {
 		
-			SensorDto sensorDto = servicioSensor.obtenerPorId(id);
+			SensorDto sensorDto = servicioSensor.obtenerPorNombre(nombre);
 			DispositivoDto dispositivoDto = servicioDispositivo.obtenerPorMac(mac);
 			
 			Sensor sensor = sensorDto.getSensor();	
 			Dispositivo dispositivo = dispositivoDto.getDispositivo();
 			
-			dispositivo.asignarSensor(sensor);
+			sensor.setDispositivo(dispositivo);
+			logger.warn("***************** sensor: "+ sensorDto.getSensor().getId());
+			logger.warn("***************** sensor: "+ sensorDto.getSensor().getNombre());
+			logger.warn("***************** sensor: "+ sensorDto.getSensor().getDispositivo());
+			
+			
+			servicioSensor.actualizarSensor(sensorDto);
+//			dispositivo.asignarSensor(sensor);
 			
 			
 			List<Dispositivo> dispositivos = servicioDispositivo.llenarDispositivos().getDispositivos();

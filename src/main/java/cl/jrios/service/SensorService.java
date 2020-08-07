@@ -55,4 +55,10 @@ public class SensorService {
 		sensorDto.setSensor(dao.findById(id).orElse(null));
 		return sensorDto;
 	}
+	
+	public SensorDto obtenerPorNombre(String nombre) {
+		SensorDto sensorDto = new SensorDto(dao.findByNombre(nombre).get(), dao.findAll());
+		return sensorDto;
+	}
+	
 }
