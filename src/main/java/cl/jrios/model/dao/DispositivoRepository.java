@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import cl.jrios.model.entity.Dispositivo;
 
-public interface DispositivoRespository extends JpaRepository<Dispositivo, Integer> {
+public interface DispositivoRepository extends JpaRepository<Dispositivo, Integer> {
 	Optional<Dispositivo> findByMac(String mac);
 }

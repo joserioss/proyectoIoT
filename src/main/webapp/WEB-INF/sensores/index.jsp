@@ -91,63 +91,6 @@
 					<!-- Inicio mantenedor -->
 					<div class="card o-hidden border-0 shadow-lg my-5">
 						<div class="card-body p-0">
-
-							<!-- 							Modal actualizar -->
-							<!-- 							<div class="modal fade" id="modalActualizar" tabindex="-1" -->
-							<!-- 								role="dialog" aria-labelledby="exampleModalLabel" -->
-							<!-- 								aria-hidden="true"> -->
-							<!-- 								<div class="modal-dialog" role="document"> -->
-							<!-- 									<div class="modal-content"> -->
-							<!-- 										<form action="/sensores/actualizar" method="post"> -->
-							<!-- 											<div class="modal-header"> -->
-							<!-- 												<h5 class="modal-title"> -->
-							<!-- 													Actualizar Sensor: -->
-							<%-- 													<c:out value="${sensor.getId() }"></c:out> --%>
-							<!-- 												</h5> -->
-							<!-- 												<button type="button" class="close" data-dismiss="modal" -->
-							<!-- 													aria-label="Close"> -->
-							<!-- 													<span aria-hidden="true">&times;</span> -->
-							<!-- 												</button> -->
-							<!-- 											</div> -->
-
-							<!-- 											<div class="modal-body"> -->
-
-							<!-- 												<div class="form-group"> -->
-							<!-- 													<input type="text" class="form-control" id="nombre" -->
-							<!-- 														name="nombre" placeholder="Nombre del sensor" -->
-							<%-- 														value="${sensor.getNombre() }"> --%>
-							<!-- 												</div> -->
-
-							<!-- 												<div class="form-group"> -->
-							<!-- 													<input type="text" class="form-control form-control-user" -->
-							<!-- 														id="descripcion" name="descripcion" -->
-							<!-- 														placeholder="Descripcion del sensor" -->
-							<%-- 														value="${sensor.getDescripcion() }"> --%>
-							<!-- 												</div> -->
-							<!-- 												<div class="form-group"> -->
-							<!-- 													<select class="form-control form-control-user" id="tipo" -->
-							<!-- 														name="tipo"> -->
-							<%-- 														<c:forEach var="tipo" items="${TipoSensor.values()}"> --%>
-							<%-- 															<option value="${tipo}">${tipo}</option> --%>
-							<%-- 														</c:forEach> --%>
-							<!-- 													</select> -->
-							<!-- 												</div> -->
-							<!-- 											</div> -->
-							<!-- 											<div class="modal-footer"> -->
-							<!-- 												<button type="submit" class="btn btn-primary">Guardar -->
-							<!-- 													cambios sensor</button> -->
-
-							<!-- 												<button type="button" class="btn btn-secondary" -->
-							<!-- 													data-dismiss="modal">Close</button> -->
-							<!-- 											</div> -->
-							<!-- 										</form> -->
-							<!-- 									</div> -->
-							<!-- 								</div> -->
-
-							<!-- 							</div> -->
-
-							<!-- 							Modal actualizar # -->
-
 							<div class="row">
 								<div class="col-lg-12">
 									<div class="p-5">
@@ -191,9 +134,9 @@
 																		<td>${sensor.descripcion}</td>
 																		<td>${sensor.tipo}</td>
 																		<td><a
-																			href='<c:out value="/sensores/actualizar?id=${sensor.getId()}" />'
-																			class="btn btn-success btn-circle btn-sm">
-																				<i class="fas fa-arrow-right"></i>
+																			href='<c:out value="/sensores/actualizar?id=${sensor.id}" />'
+																			class="btn btn-success btn-circle btn-sm"> <i
+																				class="fas fa-arrow-right"></i>
 																		</a></td>
 																		<td><a
 																			href='<c:out value="/sensores/eliminar?id=${sensor.getId()}" />'

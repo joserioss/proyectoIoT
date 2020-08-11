@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import cl.jrios.model.dao.DispositivoRespository;
+import cl.jrios.model.dao.DispositivoRepository;
 import cl.jrios.model.dto.DispositivoDto;
 import cl.jrios.model.entity.Dispositivo;
 
@@ -18,7 +18,7 @@ public class DispositivoService {
 	private static final Logger logger = LoggerFactory.getLogger(DispositivoService.class);
 
 	@Autowired
-	private DispositivoRespository dao;
+	private DispositivoRepository dao;
 
 	public DispositivoDto registrarDispositivo(Dispositivo dispositivo) {
 		DispositivoDto dispositivoDto = new DispositivoDto();

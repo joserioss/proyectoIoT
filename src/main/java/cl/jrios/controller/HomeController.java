@@ -93,7 +93,7 @@ public class HomeController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String name = auth.getName();
 		modelo.addAttribute("username", name);
-		
+
 		SensorDto sensorDto = servicioSensor.obtenerPorNombre(nombre);
 		DispositivoDto dispositivoDto = servicioDispositivo.obtenerPorMac(mac);
 
@@ -105,21 +105,23 @@ public class HomeController {
 //			dispositivo.asignarSensor(sensor);
 
 		List<Dispositivo> dispositivos = servicioDispositivo.llenarDispositivos().getDispositivos();
-		//************************************PASAR A SERVICIO MAS ADELANTE*******************************
-				List<Dispositivo> dispositivosPermitidos = new ArrayList<>();
+		// ************************************PASAR A SERVICIO MAS
+		// ADELANTE*******************************
+		List<Dispositivo> dispositivosPermitidos = new ArrayList<>();
 
-				String nombreSesion = "[" + name + "]";
-				for (Dispositivo disp : dispositivos) {
-					String usuarioEnTexto = disp.getUsuarios().toString();
-					if (nombreSesion.equals(usuarioEnTexto)) {
-						dispositivosPermitidos.add(disp);
-					}
-				}
+		String nombreSesion = "[" + name + "]";
+		for (Dispositivo disp : dispositivos) {
+			String usuarioEnTexto = disp.getUsuarios().toString();
+			if (nombreSesion.equals(usuarioEnTexto)) {
+				dispositivosPermitidos.add(disp);
+			}
+		}
 
-				logger.warn("*************** dispositico del usuario : " + dispositivosPermitidos);
+		logger.warn("*************** dispositico del usuario : " + dispositivosPermitidos);
 
-		//************************************ FIN FUTURO SERVICIO *******************************	
-		
+		// ************************************ FIN FUTURO SERVICIO
+		// *******************************
+
 		List<Sensor> sensores = servicioSensor.llenarSensores().getSensores();
 		modelo.addAttribute("sensores", sensores);
 		modelo.addAttribute("dispositivos", dispositivosPermitidos);
@@ -128,4 +130,31 @@ public class HomeController {
 		return "home/index";
 	}
 
+	@GetMapping("/eliminar")
+	public String eliminar(ModelMap modelo, 
+			@RequestParam(name = "mac") String mac,
+			@RequestParam(name = "nombre")String nombre) {
+		logger.info("Vinculo a eliminar:" + mac + "con sensor: " + nombre);
+		DispositivoDto dispositivoDto = servicioDispositivo.obtenerPorMac(mac);
+		SensorDto sensorDto = servicioSensor.obtenerPorNombre(nombre);
+		
+		Sensor sensorDesvinculado = new Sensor();
+		sensorDesvinculado.setDispositivo(null);
+		sensorDesvinculado.setDescripcion(sensorDto.getSensor().getDescripcion());
+		sensorDesvinculado.setNombre(sensorDto.getSensor().getNombre());
+		sensorDesvinculado.setTipo(sensorDto.getSensor().getTipo());
+		
+		
+		Dispositivo dispositivo = dispositivoDto.getDispositivo();
+		
+		dispositivo.quitarSensor(sensorDto.getSensor());
+		servicioDispositivo.actualizarDispositivo(dispositivoDto);
+		
+		servicioSensor.registrarSensor(sensorDesvinculado);
+		List<Sensor> sensores = servicioSensor.llenarSensores().getSensores();
+		modelo.addAttribute("sensores", sensores);
+		
+		logger.info("Vinculo eliminado");
+		return "redirect:/home";
+	}
 }

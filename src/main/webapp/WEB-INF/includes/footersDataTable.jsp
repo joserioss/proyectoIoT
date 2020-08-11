@@ -16,9 +16,9 @@
 </script>
 <!-- dataTable a espaÃ±ol #-->
 <script
-	src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"
+	src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"
 	crossorigin="anonymous"></script>
 <script
-	src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"
+	src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.js"
 	crossorigin="anonymous"></script>
 <script src="assets/demo/datatables-demo.js"></script>

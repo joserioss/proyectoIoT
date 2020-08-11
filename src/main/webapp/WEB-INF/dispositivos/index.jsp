@@ -76,16 +76,6 @@
 												placeholder="Ubicacion del dispositivo">
 
 											</div>
-
-											<!-- 											<div class="form-group"> -->
-											<!-- 												<select class="form-control form-control-user" id="sensores" -->
-											<!-- 													name="macDispositivo"> -->
-											<%-- 													<c:forEach var="sensor" items="${sensores}"> --%>
-											<%-- 														<option value="${sensor}">${sensor}</option> --%>
-											<%-- 													</c:forEach> --%>
-											<!-- 												</select> -->
-											<!-- 											</div> -->
-
 											<div class="form-group">
 												<select class="form-control form-control-user"
 													id="privacidad" name="privacidad">

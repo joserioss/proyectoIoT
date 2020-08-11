@@ -113,7 +113,7 @@
 															class="btn btn-success btn-circle btn-sm"> <i
 																class="fas fa-arrow-right"></i>
 														</a></td>
-														<td><a href="#"
+														<td><a href='<c:out value = "/home/eliminar?mac=${sensor.getDispositivo().getMac()}&nombre=${sensor.nombre}" />'
 															class="btn btn-danger btn-circle btn-sm"> <i
 																class="fas fa-trash"></i>
 														</a></td>

@@ -99,10 +99,6 @@
 					<!-- Inicio mantenedor -->
 					<div class="card o-hidden border-0 shadow-lg my-5">
 						<div class="card-body p-0">
-
-
-
-
 							<div class="row">
 								<div class="col-lg-12">
 									<div class="p-5">
@@ -164,41 +160,43 @@
 											</div>
 											<!--  Fin dataTables -->
 
-
 										</div>
 									</div>
 								</div>
 							</div>
-
-							<!-- Fin mantenedor -->
 						</div>
-						<!-- End of Main Content -->
-						<!-- Footer -->
-						<jsp:include page="../includes/footers.jsp"></jsp:include>
-						<!-- End of Footer -->
-
 					</div>
 
-					<!-- End of Page Wrapper -->
-
-					<!-- Scroll to Top Button-->
-					<a class="scroll-to-top rounded" href="#page-top"> <i
-						class="fas fa-angle-up"></i>
-					</a>
-
-					<!-- Modal Logout -->
-					<jsp:include page="../includes/modalLogout.jsp"></jsp:include>
-					<!-- Modal Logout -->
+					<!-- Fin mantenedor -->
 				</div>
+				<!-- End of Main Content -->
+				<!-- Footer -->
+				<jsp:include page="../includes/footers.jsp"></jsp:include>
+				<!-- End of Footer -->
 
 			</div>
 
-			<!-- footer scripts -->
-			<jsp:include page="../includes/footerscripts.jsp"></jsp:include>
-			<!-- footer scripts -->
-			<!-- footer data Table -->
-			<jsp:include page="../includes/footersDataTable.jsp"></jsp:include>
-			<!-- footer data Table -->
+			<!-- End of Page Wrapper -->
+
+			<!-- Scroll to Top Button-->
+			<a class="scroll-to-top rounded" href="#page-top"> <i
+				class="fas fa-angle-up"></i>
+			</a>
+
+			<!-- Modal Logout -->
+			<jsp:include page="../includes/modalLogout.jsp"></jsp:include>
+			<!-- Modal Logout -->
+		</div>
+
+
+	</div>
+
+	<!-- footer scripts -->
+	<jsp:include page="../includes/footerscripts.jsp"></jsp:include>
+	<!-- footer scripts -->
+	<!-- footer data Table -->
+	<jsp:include page="../includes/footersDataTable.jsp"></jsp:include>
+	<!-- footer data Table -->
 </body>
 
 </html>

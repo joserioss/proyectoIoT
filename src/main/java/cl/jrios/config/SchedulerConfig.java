@@ -1,5 +1,6 @@
 package cl.jrios.config;
 
+import java.util.List;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,27 +10,21 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import cl.jrios.service.DispositivoService;
+import cl.jrios.service.ReceptorService;
 
 @EnableScheduling
 @Configuration
 public class SchedulerConfig {
-    @Autowired
-    SimpMessagingTemplate template;
-    
-    @Autowired
-	private DispositivoService servicio;
+	@Autowired
+	SimpMessagingTemplate template;
 
-    @Scheduled(fixedDelay = 1000)
-    public void sendAdhocMessages() {
-        Random rnd = new Random();
-        
-        Integer[] numeros = new Integer[10];
-        
-        for(int i = 0; i < 10; i ++) {
-            numeros[i] =  rnd.nextInt((10 - 0) + 1) + 0;
-        }
-        //Integer[] numeros = servicio.obtenerNumeros()
+	@Autowired
+	private ReceptorService servicio;
 
-        template.convertAndSend("/agente/grafico", numeros);
-    }
+	@Scheduled(fixedDelay = 15000)
+	public void sendAdhocMessages() {
+		List<Integer> numeros = servicio.obtenerUltimos();
+
+		template.convertAndSend("/agente/grafico", numeros);
+	}
 }

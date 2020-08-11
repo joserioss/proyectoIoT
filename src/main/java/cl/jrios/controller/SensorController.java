@@ -21,9 +21,9 @@ import cl.jrios.model.entity.Sensor;
 import cl.jrios.service.SensorService;
 
 @Controller
-@RequestMapping("/sensores")
+@RequestMapping("sensores")
 public class SensorController {
-	private Logger logger = LoggerFactory.getLogger(SensorController.class);
+	private static final Logger logger = LoggerFactory.getLogger(SensorController.class);
 
 	@Autowired
 	private SensorService servicioSensor;
@@ -37,23 +37,22 @@ public class SensorController {
 		List<Sensor> sensores = servicioSensor.llenarSensores().getSensores();
 
 		modelo.addAttribute("sensores", sensores);
-		modelo.put("sensores", sensores);
+		
 		return "sensores/index";
 	}
 	
 	@GetMapping("/actualizar")
 	public String actualizar(ModelMap modelo, @RequestParam(name = "id") Integer id) {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String name = auth.getName();
-		modelo.addAttribute("username", name);
+		
 		Sensor sensor = servicioSensor.obtenerPorId(id).getSensor();
 		
+		logger.info("Procedimiento:" + sensor.getDescripcion());
 		List<Sensor> sensores = servicioSensor.llenarSensores().getSensores();
 
 		modelo.addAttribute("sensor", sensor);
 		modelo.addAttribute("sensores", sensores);
 		
-		return "sensores/sensorActualizar";
+		return "sensores/sensoresActualizar";
 	}
 
 	@PostMapping
@@ -63,17 +62,13 @@ public class SensorController {
 		
 		List<Sensor> sensores = servicioSensor.llenarSensores().getSensores();
 
-		modelo.addAttribute("sensor", sensor);
 		modelo.addAttribute("sensores", sensores);
 		return "sensores/index";
 	}
 
 	@PostMapping("/actualizar")
 	public String hacerActualizar(@ModelAttribute Sensor sensor, ModelMap modelo, RedirectAttributes attributes) {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String name = auth.getName();
-		modelo.addAttribute("username", name);
-
+		
 		SensorDto dtoEnBase = servicioSensor.obtenerPorNombre(sensor.getNombre());
 		dtoEnBase.getSensor().setNombre(sensor.getNombre());
 		dtoEnBase.getSensor().setDescripcion(sensor.getDescripcion());
