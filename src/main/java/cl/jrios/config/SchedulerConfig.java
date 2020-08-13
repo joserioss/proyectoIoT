@@ -21,7 +21,7 @@ public class SchedulerConfig {
 	@Autowired
 	private ReceptorService servicio;
 
-	@Scheduled(fixedDelay = 15000)
+	@Scheduled(fixedDelay = 3000)
 	public void sendAdhocMessages() {
 		List<Integer> numeros = servicio.obtenerUltimos();
 

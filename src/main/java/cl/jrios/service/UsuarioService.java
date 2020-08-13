@@ -1,5 +1,7 @@
 package cl.jrios.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Service;
 import cl.jrios.model.dao.UsuarioRepository;
 import cl.jrios.model.dto.RegistroDto;
 import cl.jrios.model.dto.UsuarioDto;
+import cl.jrios.model.entity.Dispositivo;
 import cl.jrios.model.entity.Rol;
 import cl.jrios.model.entity.Usuario;
 
@@ -93,5 +96,18 @@ public class UsuarioService {
 		UsuarioDto aux = new UsuarioDto();
 		aux.setUsuario(dao.findById(id).orElse(null));
 		return aux;
+	}
+	
+	public List<Dispositivo> dispositivosPermitidos(String name, List<Dispositivo> dispositivos){
+		List<Dispositivo> dispositivosPermitidos = new ArrayList<>();
+
+		String nombreSesion = "[" + name + "]";
+		for (Dispositivo disp : dispositivos) {
+			String usuarioEnTexto = disp.getUsuarios().toString();
+			if (nombreSesion.equals(usuarioEnTexto)) {
+				dispositivosPermitidos.add(disp);
+			}
+		}
+		return dispositivosPermitidos;
 	}
 }

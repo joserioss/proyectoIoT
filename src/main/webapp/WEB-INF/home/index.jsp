@@ -40,8 +40,8 @@
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="/" data-toggle="modal"
 									data-target="#logoutModal"><i class="fa fa-book fa-fw"></i>Logout</a>
-								<a class="dropdown-item" href="/user"><i
-									class="fas fa-fw fa-tachometer-alt"></i> Dashboard</a>
+								<!-- 								<a class="dropdown-item" href="/user"><i -->
+								<!-- 									class="fas fa-fw fa-tachometer-alt"></i> Dashboard</a> -->
 							</div></li>
 						<!-- Menú usuario -->
 					</ul>
@@ -49,26 +49,11 @@
 				<!-- Menú superior -->
 				<hr>
 				<!-- Begin Page Content -->
-				<div class="container-fluid">
-					<div
-						class="d-sm-flex align-items-center justify-content-between mb-4">
-
-						<h1 class="h3 mb-0 text-gray-800"></h1>
-						<a href="<c:url value = '/user' />"
-							class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-							<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
-						</a>
-					</div>
-
-				</div>
-
 				<hr class="sidebar-divider my-0">
 
 				<div class="card o-hidden border-0 shadow-lg my-5">
 
 					<div class="container-fluid">
-
-						<hr>
 
 						<!-- DataTales Example -->
 						<div class="card shadow mb-4">
@@ -109,11 +94,13 @@
 														<td>${sensor.nombre}</td>
 														<td>${sensor.dispositivo}</td>
 														<td>${sensor.getDispositivo().getUbicacion()}</td>
-														<td><a href="<c:url value = "/user"/>"
-															class="btn btn-success btn-circle btn-sm"> <i
-																class="fas fa-arrow-right"></i>
+														<td><a
+															href="<c:url value = '/user?mac=${sensor.getDispositivo().getMac()}&nombre=${sensor.nombre}' />"
+															class="btn btn-sm btn-primary">
+																<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
 														</a></td>
-														<td><a href='<c:out value = "/home/eliminar?mac=${sensor.getDispositivo().getMac()}&nombre=${sensor.nombre}" />'
+														<td><a
+															href='<c:out value = "/home/eliminar?mac=${sensor.getDispositivo().getMac()}&nombre=${sensor.nombre}" />'
 															class="btn btn-danger btn-circle btn-sm"> <i
 																class="fas fa-trash"></i>
 														</a></td>

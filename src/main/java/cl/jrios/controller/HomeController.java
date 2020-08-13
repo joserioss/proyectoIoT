@@ -52,34 +52,10 @@ public class HomeController {
 
 		List<Dispositivo> dispositivos = servicioDispositivo.llenarDispositivos().getDispositivos();
 
-//************************************PASAR A SERVICIO MAS ADELANTE*******************************
+		List<Dispositivo> dispositivosPermitidos = servicioUsuario.dispositivosPermitidos(name, dispositivos);
 
-// Servicio de devuelve una lista con los dispositivos pertenecientes solo al usuario de la sesion
-
-		List<Dispositivo> dispositivosPermitidos = new ArrayList<>();
-
-		String nombreSesion = "[" + name + "]";
-		for (Dispositivo disp : dispositivos) {
-			String usuarioEnTexto = disp.getUsuarios().toString();
-			if (nombreSesion.equals(usuarioEnTexto)) {
-				dispositivosPermitidos.add(disp);
-			}
-		}
-
-		logger.warn("*************** dispositico del usuario : " + dispositivosPermitidos);
-
-//************************************ FIN FUTURO SERVICIO *******************************		
 		List<Sensor> sensores = servicioSensor.llenarSensores().getSensores();
 
-//		List<Sensor> sensoresPermitidos = new ArrayList<>();
-//		for (Sensor sen : sensores) {
-//			for (Dispositivo disp : dispositivosPermitidos) {
-//				if ((sen.getDispositivo().getMac()).equals(disp.getMac())) {
-//					sensoresPermitidos.add(sen);
-//				}
-//			}
-//		}
-//		logger.warn("*************** Sensores permitidos : " + sensoresPermitidos);
 		modelo.addAttribute("sensores", sensores);
 		modelo.addAttribute("dispositivos", dispositivosPermitidos);
 
@@ -105,24 +81,9 @@ public class HomeController {
 //			dispositivo.asignarSensor(sensor);
 
 		List<Dispositivo> dispositivos = servicioDispositivo.llenarDispositivos().getDispositivos();
-		// ************************************PASAR A SERVICIO MAS
-		// ADELANTE*******************************
-		List<Dispositivo> dispositivosPermitidos = new ArrayList<>();
-
-		String nombreSesion = "[" + name + "]";
-		for (Dispositivo disp : dispositivos) {
-			String usuarioEnTexto = disp.getUsuarios().toString();
-			if (nombreSesion.equals(usuarioEnTexto)) {
-				dispositivosPermitidos.add(disp);
-			}
-		}
-
-		logger.warn("*************** dispositico del usuario : " + dispositivosPermitidos);
-
-		// ************************************ FIN FUTURO SERVICIO
-		// *******************************
-
+		List<Dispositivo> dispositivosPermitidos = servicioUsuario.dispositivosPermitidos(name, dispositivos);
 		List<Sensor> sensores = servicioSensor.llenarSensores().getSensores();
+
 		modelo.addAttribute("sensores", sensores);
 		modelo.addAttribute("dispositivos", dispositivosPermitidos);
 
@@ -131,29 +92,27 @@ public class HomeController {
 	}
 
 	@GetMapping("/eliminar")
-	public String eliminar(ModelMap modelo, 
-			@RequestParam(name = "mac") String mac,
-			@RequestParam(name = "nombre")String nombre) {
+	public String eliminar(ModelMap modelo, @RequestParam(name = "mac") String mac,
+			@RequestParam(name = "nombre") String nombre) {
 		logger.info("Vinculo a eliminar:" + mac + "con sensor: " + nombre);
 		DispositivoDto dispositivoDto = servicioDispositivo.obtenerPorMac(mac);
 		SensorDto sensorDto = servicioSensor.obtenerPorNombre(nombre);
-		
+
 		Sensor sensorDesvinculado = new Sensor();
 		sensorDesvinculado.setDispositivo(null);
 		sensorDesvinculado.setDescripcion(sensorDto.getSensor().getDescripcion());
 		sensorDesvinculado.setNombre(sensorDto.getSensor().getNombre());
 		sensorDesvinculado.setTipo(sensorDto.getSensor().getTipo());
-		
-		
+
 		Dispositivo dispositivo = dispositivoDto.getDispositivo();
-		
+
 		dispositivo.quitarSensor(sensorDto.getSensor());
 		servicioDispositivo.actualizarDispositivo(dispositivoDto);
-		
+
 		servicioSensor.registrarSensor(sensorDesvinculado);
 		List<Sensor> sensores = servicioSensor.llenarSensores().getSensores();
 		modelo.addAttribute("sensores", sensores);
-		
+
 		logger.info("Vinculo eliminado");
 		return "redirect:/home";
 	}

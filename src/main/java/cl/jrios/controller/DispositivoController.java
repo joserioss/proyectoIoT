@@ -51,20 +51,7 @@ public class DispositivoController {
 		Usuario usuario = usuarioDto.getUsuario();
 
 		List<Dispositivo> dispositivos = servicioDispositivo.llenarDispositivos().getDispositivos();
-
-//************************************PASAR A SERVICIO MAS ADELANTE*******************************
-		List<Dispositivo> dispositivosPermitidos = new ArrayList<>();
-
-		String nombreSesion = "[" + name + "]";
-		for (Dispositivo disp : dispositivos) {
-			String usuarioEnTexto = disp.getUsuarios().toString();
-			if (nombreSesion.equals(usuarioEnTexto)) {
-				dispositivosPermitidos.add(disp);
-			}
-		}
-
-		logger.warn("*************** dispositico del usuario : " + dispositivosPermitidos);
-//************************************ FIN FUTURO SERVICIO *******************************		
+		List<Dispositivo> dispositivosPermitidos = servicioUsuario.dispositivosPermitidos(name, dispositivos);
 		List<Sensor> sensores = servicioSensor.llenarSensores().getSensores();
 
 		modelo.addAttribute("sensores", sensores);

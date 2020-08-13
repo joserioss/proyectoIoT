@@ -56,16 +56,14 @@
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
 						<h1 class="h3 mb-0 text-gray-800"></h1>
-						<div class="btn-group" role="group">
-							<button id="btnGroupDrop1" type="button"
-								class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false">Dispositivos
-								disponibles</button>
-							<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-								<a class="dropdown-item" href="/user">ESP8266-3</a> <a
-									class="dropdown-item" href="/user">ESP8266-4</a>
-							</div>
-						</div>
+
+						<select name="mac" id="dispositivo" class="col-sm-5">
+							<option value="" selected>Seleccione dispositivo...</option>
+							<c:forEach var="dispo" items="${sensores}">
+							
+								<option value="${dispo.getDispositivo().getMac()}">${dispo.getDispositivo().getMac()} - ${dispo.getNombre()}</option>
+							</c:forEach>
+						</select> 
 					</div>
 
 				</div>
